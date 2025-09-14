@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dominant: #4a2c2a;
+  --color-secondary: #fffdd0;
+  --color-secondary-2: #f5f5dc;
+  --color-test: #8a9a5b;
+
+  /* colors icon */
+
+  /* animate icon */
+  --animate-rotate360: rotate360 5s linear infinite;
+
+  @keyframes rotate360 {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

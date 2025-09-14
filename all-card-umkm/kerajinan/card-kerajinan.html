@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/img/logo/seuramoe-bg-none.png" type="image/x-icon">
+    <link href="../../src/output.css" rel="stylesheet">
+    <title>Card Kerajinan</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        header .back a img {
+            width: 2.8rem;
+            height: 2rem;
+        }
+        main .all-umkm .card-umkm {
+            border: 3px solid black;
+            width: 70%;
+            height: 45vh;
+            color: white;
+            overflow: hidden;
+            margin: 0 auto 11%;
+            border-radius: 10px;
+        }
+        
+        main .all-umkm .card-umkm .descp {
+            position: relative;
+            padding-left: 10px;
+            background-color: rgba(255, 255, 255, 0.553);
+            backdrop-filter: blur(5px);
+            top: 130px;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0px 0 15px rgba(0, 0, 0, 0.455);
+        }
+
+        main .all-umkm .card-umkm .descp h2 {
+            font-size: 20px;
+        }
+
+        main .all-umkm .card-umkm .descp :where(h2, p) {
+            color: black;
+        }
+
+        main .all-umkm .card-umkm .descp .location {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .3rem;
+        }
+
+        main .all-umkm .card-umkm .descp .location img {
+            width: 25px;
+            height: 25px;
+        }
+
+        main .all-umkm .card-umkm .descp .location p {
+            font-size: 13px;
+            width: 25ch;
+        }
+
+        main .all-umkm .card-umkm .descp a section.button {
+            background-color: black;
+            width: 95%;
+            height: auto;
+            text-align: center;
+            margin-top: .6rem;
+            border-radius: 13px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 48rem) {
+            main .all-umkm .card-umkm {
+                width: 85%;
+                height: 35vh;
+                color: white;
+                overflow: hidden;
+                margin: 0 auto 11%;
+                border-radius: 10px;
+            }
+            main .all-umkm .card-umkm .descp {
+                padding-left: 10px;
+                background-color: rgba(255, 255, 255, 0.553);
+                backdrop-filter: blur(5px);
+                /* top: 150; */
+                width: 100%;
+                height: 100%;
+            }
+            main .all-umkm .card-umkm .descp h2 {
+                font-size: .9rem;
+            }
+            main .all-umkm .card-umkm .descp .location p {
+                font-size: .6rem;
+                width: 20ch;
+            }
+            main .all-umkm .card-umkm .descp a section.button {
+                text-align: center;
+                height: auto;
+                margin: 2% 0;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body class=" overflow-x-hidden min-w-screen">
+    <header class="min-w-screen bg-secondary-2 min-h-[10vh] flex justify-start items-center gap-x-[27%] max-md:gap-x-[5%] max-md:justify-center">
+        <section class="back ml-[1%] border-2 border-dominant rounded-2xl">
+            <a href="../../index.html" class="flex justify-center items-center"><img src="../../assets/icons/arrow-big-left-dash.svg" alt=""><p class="mr-[.7rem]">kembali</p></a>
+        </section>
+        <h1 class="uppercase text-3xl max-md:text-lg text-dominant text-center">umkm daun-daunan</h1>
+    </header>
+    <main class="min-h-screen bg-test">
+        <section class="all-umkm grid grid-cols-4 max-md:grid-cols-2 pt-5 min-w-screen">
+            
+        </section>
+    </main>
+    <script src="card.js"></script>
+</body>
+</html>

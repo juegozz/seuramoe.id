@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/img/logo/seuramoe-bg-none.png" type="image/x-icon">
+    <link href="../../src/output.css" rel="stylesheet">
+    <title>atap rumbia</title>
+    <style>
+        .img-usaha img {
+            width: 45vw;
+            height: 50vh;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+        .hero-section :is(.img-usaha, .description, .information, .maps) {
+            padding: 5% 0;
+        }
+
+        .hero-section .information figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-section .information figure img {
+            width: 2.5rem;
+            height: 3rem;
+        }
+
+        .hero-section .maps a figure iframe {
+            width: 36vw;
+            height: 35vh;
+            border-radius: 10px;
+        }
+
+        
+        /* product */
+        .table-product table :where(th, td) {
+            border: 2px solid black;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .table-product table tbody tr td img {
+            width: 10vw;
+            height: 10vh;
+            margin: auto;
+        }
+
+        @media screen and (max-width: 48rem) {
+            .img-usaha img {
+                width: 90vw;
+                height: 40vh;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+
+            .hero-section .maps a figure iframe {
+                width: 80vw;
+                height: 35vh;
+                border-radius: 10px;
+            }
+            .hero-section :is(.img-usaha, .description, .information, .maps) {
+                padding: 8% 0;
+            }
+            .table-product table :where(th, td) {
+                padding: 1%;
+            }
+            .table-product table thead tr th {
+                font-size: 10px;
+            }
+            .table-product table tbody tr td img {
+                width: 80%;
+                height: 30%;
+            }
+
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <header></header>
+    <main class="min-h-screen">
+        <section class="hero-section grid grid-cols-2 max-md:grid-cols-1 bg-test place-items-center min-w-screen">
+            <section class="img-usaha">
+                <img src="../../assets/img/usaha-umkm/kerajinan/umkm-13.jpg" alt="">
+            </section>
+
+            <section class="description text-secondary text-justify w-[68ch] max-md:w-[33ch] mr-[5%] max-md:mr-[0%]">
+                <h1 class="capitalize text-2xl mb-[.3rem] max-md:text-lg">atap daun</h1>
+                <p class="max-md:text-sm">Usaha jualan atap daun adalah bisnis yang berfokus pada produksi dan penjualan atap berbahan dasar daun alami, seperti daun rumbia, nipah, atau ijuk, yang sering digunakan untuk rumah tradisional, gazebo, atau bangunan bergaya alami. Usaha ini biasanya memanfaatkan bahan lokal yang ramah lingkungan, dengan proses pembuatan meliputi pemilihan daun, pengeringan, dan penenunan manual atau semi-manual. Keunggulannya meliputi harga terjangkau, estetika tradisional, dan daya tahan terhadap cuaca jika diproses dengan baik. Pasar utamanya adalah pemilik rumah adat, pengusaha restoran bertema, atau proyek eco-friendly. Tantangannya adalah ketahanan terbatas (biasanya 5-10 tahun) dan persaingan dengan material modern seperti seng atau genteng</p>
+            </section>
+
+            <section class="information border-2 border-black rounded-2xl bg-secondary-2 w-[60%] flex justify-around">
+                <figure class="contact">
+                    <img src="../../assets/icons/smartphone.svg" alt="">
+                    <figcaption class="capitalize text-center max-md:text-xs">nomor telepon pemilik <br> <a href="https://wa.me/6285159255371">085159255371</a> </figcaption>
+                </figure>
+                <figure class="name-umkm">
+                    <img src="../../assets/icons/leaf.svg" alt="">
+                    <figcaption class="capitalize text-center max-md:text-xs">atap daun Bu sekdes</figcaption>
+                </figure>
+            </section>
+
+            <section class="maps">
+                <a href="https://maps.app.goo.gl/vm62EQb91cdoe3By5">
+                    <figure class="flex justify-center items-center flex-col">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d756.4409970355379!2d95.88695226947088!3d5.373434334874623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNcKwMjInMjQuNCJOIDk1wrA1MycxNS40IkU!5e1!3m2!1sid!2sid!4v1757030728772!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <figcaption class="text-secondary text-center capitalize w-[50ch] max-md:w-[40ch]">jl. banda aceh - medan Gintong, Kec. Grong-grong, Kabupaten Pidie, Aceh</figcaption>
+                    </figure>
+                </a>
+            </section>
+        </section>
+
+        <!-- product -->
+        <section class="table-product w-screen bg-secondary min-h-screen flex justify-center items-start pt-[3%]">
+            <table class="border-collapse w-[90%] max-md:text-sm">
+                <thead>
+                    <tr>
+                        <th>gambar</th>
+                        <th>nama produk</th>
+                        <th>harga produk</th>
+                        <th>deskripsi produk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </section>
+
+        <aside class="absolute right-[3%] top-[4%] bg-secondary w-[8rem] h-[2rem] rounded-2xl flex justify-center items-center">
+            <section class="back">
+                <a href="../../all-card-umkm/atap-daun/card-kerajinan.html" class="px-[2.2rem] py-[.2rem]">kembali</a>
+            </section>
+        </aside>
+    </main>
+    <script>
+        async function tableProduct() {
+        try {
+            const response = await fetch('../../data-umkm/table-data.json')
+            if (!response.ok) throw new Error(`Gagal mengambil data: ${response.statusText}`)
+            
+            const result = await response.json()
+            if (!Array.isArray(result)) throw new Error('Data JSON bukan array')
+
+            const containerProduct = document.querySelector('tbody')
+
+            containerProduct.innerHTML = ''
+            result.forEach((produk) => {
+            const element = document.createElement('tr')
+            element.innerHTML = `
+                        <td><img src="${produk.img}" alt=""></td>
+                        <td>${produk.name}</td>
+                        <td>${produk.price}</td>
+                        <td>${produk.description}</td>`
+            containerProduct.appendChild(element)
+            })
+
+
+        } catch (error) {
+            console.error('Error:', error)
+            const containerUmkm = document.querySelector('.all-umkm')
+            if (containerUmkm) {
+            containerUmkm.innerHTML = '<p>Terjadi kesalahan saat memuat data UMKM.</p>'
+            }
+        }
+        }
+
+        document.addEventListener('DOMContentLoaded', tableProduct())
+    </script>
+</body>
+</html>

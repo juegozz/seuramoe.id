@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/img/logo/seuramoe-bg-none.png" type="image/x-icon">
+    <link href="../../src/output.css" rel="stylesheet">
+    <title>mahasiswa kkn</title>
+    <style>
+        * {
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+        header {
+            transition: 1s ease-in-out;
+        }
+
+        .hamburger-menu {
+            display: none;
+        }
+
+        .sidebar {
+            background-color: #fffdd0; /* bg-secondary/90 */
+            transform: translateX(100%); /* Mulai di luar layar kanan */
+            transition: transform 0.4s ease; /* Animasi geser */
+            padding: 1.5rem 4rem 0 ;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar :is(.logo, nav) {
+            display: block;
+        }
+
+        .sidebar-overlay {
+            position: absolute;
+            top: 2%;
+            left: 75%;
+            width: max-content;
+            height: max-content;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 999;
+        }
+
+        .sidebar-overlay img {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sub-about li {
+            padding: 3px;
+        }
+
+        .sub-about li:hover {
+            background-color: rgba(74, 44, 42, 0.3);
+        }
+
+        .sub-about li a {
+            display: block;
+            width: 100%;
+        }
+
+        /* content */
+        main .slider ul .slider-item {
+            position: absolute;
+            width: 100%;
+            height: 10rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: .5s linear;
+        }
+        
+        main .slider ul .slider-item.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        main .slider ul .slider-item .slider-img img {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+
+        main .slider button.absolute {
+            width: 8%;
+            height: 8%;
+        }
+
+        main .slider button.absolute img {
+            width: 8vw;
+            height: 8vh;
+        }
+
+        /* footer */
+        footer .info-contact a svg {
+            stroke-width: 8;
+        }
+
+        footer .info-contact a {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 8px;
+            padding: .5rem;
+        }
+
+        footer .logo-kkn img {
+            width: 100vw;
+            height: 40vh;
+            object-fit: contain;
+        }
+
+        @media screen and (max-width: 768px) {
+            header {
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+            }
+
+            .hamburger-menu {
+                display: block !important;
+                position: relative;
+            }
+
+            .sidebar .logo {
+                display: flex;
+                justify-content: center;
+            }
+
+            :where(.logo, nav) {
+                display: none;
+            }
+    
+            .hamburger-menu img {
+                width: 2rem;
+                height: 2rem;
+            }
+            main .slider ul .slider-item .slider-img img {
+                width: 100%;
+                height: 30vh;
+                object-fit: cover;
+                border-radius: 1rem;
+            }
+            footer .info-contact a .name-sosial {
+                width: 15ch;
+            }
+            footer .info-contact a svg {
+                width: 50%;
+                height: 50%;
+            }
+            /* footer .logo-kkn img {
+                width: 25;
+                height: 15rem;
+                object-fit: contain;
+            } */
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <header class="bg-secondary/70 backdrop-blur-sm max-w-[100%] flex flex-col items-center px-3 fixed left-1/2 -translate-x-1/2 rounded-xl mt-2 h-[21%] w-[15%] transition-all duration-500 ease-in-out z-50 max-md:min-w-[100%] max-md:backdrop-blur-none max-md:bg-transparent max-md:rounded-[0] max-md:mt-0 max-md:h-[7%] max-md:px-[1rem]">
+        <!-- logo -->
+        <section class="logo max-md:hidden max-md:w-[3.5rem] max-md:h-[3.5rem] flex justify-center">
+            <img src="../../assets/img/logo/seuramoe-bg-none.png" alt="" width="80px" height="80px">
+        </section>
+
+        <!-- navigation -->
+        <nav>
+            <ul class="flex gap-3 items-center min-h-full text-black">
+                <li><a href="../../index.html" class="">home</a></li>
+                <li class="relative group">
+                    <a href="#home" class="flex">
+                        about
+                    </a>
+                    <ul class="sub-about absolute bg-secondary/90 backdrop-blur-xl w-[8rem] capitalize text-center invisible rounded-xl opacity-0 group-hover:opacity-100 group-hover:visible transition-all duration-[250ms] overflow-hidden">
+                        <li><a href="../profil-desa/profil-desa.html">profil desa</a></li>
+                        <li><a href="../visi-misi/visi-misi.html">visi - misi</a></li>
+                        <li><a href="#">mahasiswa KKN</a></li>
+                    </ul>
+                </li>
+                <li><a href="../../index.html" class="">berita</a></li>
+            </ul>
+        </nav>
+
+        <section class="hamburger-menu bg-secondary">
+            <img src="../../assets/icons/menu.svg" alt="">
+        </section>
+    </header>
+
+
+    <section class="sidebar fixed top-0 right-0 w-[70%] h-[100%]">
+        <section class="logo w-full">
+            <img src="../../assets/img/logo/seuramoe-bg-none.png" alt="" width="120px" height="120px">
+        </section>
+
+        <!-- navigation -->
+        <nav class="">
+            <ul class="flex gap-5 flex-col justify-center items-center min-h-full text-black">
+                <li><a href="../../index.html" class="capitalize">home</a></li>
+                <li class="relative">
+                    <a href="#" class="flex capitalize">
+                        about
+                    </a>
+                    <ul class="sub-about absolute bg-secondary/90 backdrop-blur-xl w-[8rem] capitalize text-center rounded-xl invisible opacity-0 transition-all duration-[250ms]">
+                        <li><a href="../profil-desa/profil-desa.html" class="capitalize">profil desa</a></li>
+                        <li><a href="../visi-misi/visi-misi.html" class="capitalize">visi - misi</a></li>
+                        <li><a href="#" class="capitalize">mahasiswa KKN</a></li>
+                    </ul>
+                </li>
+                <li><a href="#berita" class="">Berita</a></li>
+            </ul>
+        </nav>
+
+        <section class="sidebar-overlay">
+            <img src="../../assets/icons/x.svg" alt="">
+        </section>
+    </section>
+
+    <main class="min-h-screen">
+        <section class="hero-section grid grid-cols-2 max-md:grid-cols-1 min-h-screen max-md:h-auto bg-test pt-[10%]">
+            <section class="information flex items-center flex-col">
+                <h1 class="text-2xl max-md:text-3xl text-secondary">judul</h1>
+                <p class="text-justify w-[65ch] max-md:w-[35ch]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates amet quis assumenda labore! Ad vitae consectetur autem mollitia maiores explicabo? Velit molestias illum ea cum quaerat iusto quisquam eum earum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius corrupti cumque iusto consectetur expedita optio officia ipsum, doloremque molestiae quis dolore, hic at, consequuntur amet sunt quisquam ducimus obcaecati eos?
+                Nam quasi corporis repellat est doloremque totam, accusantium quo placeat. Iusto quidem pariatur aspernatur neque cumque id praesentium corrupti, suscipit cupiditate optio dolor veritatis accusantium expedita accusamus nesciunt! Nostrum, molestias!
+                Unde accusamus porro commodi ipsam quisquam nihil ad in magnam error, minima excepturi adipisci atque dicta aspernatur, sed, hic cum perferendis nostrum odio. Ab illum soluta accusantium, dicta alias delectus.
+                Obcaecati deleniti at tempore, voluptatum sapiente velit eum error, magnam magni nobis cumque, sit perferendis. Repellendus cumque alias quisquam corporis facilis odit ea exercitationem deleniti assumenda. Deleniti eligendi porro dolore?</p>
+            </section>
+
+            <!-- slider -->
+            <section class="slider relative mx-[5%] pt-[3%] max-md:pt-[10%]">
+                <ul class="relative w-[44vw] h-[30vh] max-md:h-[35vh] max-md:w-[90vw]">
+                    <li class="slider-item active">
+                        <section class="slider-img"><img src="../../assets/img/background/1.png" alt=""></section>
+                    </li>
+                    <li class="slider-item">
+                        <section class="slider-img"><img src="../../assets/img/background/2.png" alt=""></section>
+                    </li>
+                    <li class="slider-item">
+                        <section class="slider-img"><img src="../../assets/img/background/bg-2.jpg" alt=""></section>
+                    </li>
+                    <li class="slider-item">
+                        <section class="slider-img"><img src="../../assets/img/background/bg-5.jpg" alt=""></section>
+                    </li>
+                    <li class="slider-item">
+                        <section class="slider-img"><img src="../../assets/img/background/bg-4.jpg" alt=""></section>
+                    </li>
+                    <li class="slider-item">
+                        <section class="slider-img"><img src="../../assets/img/background/bg-1.jpg" alt=""></section>
+                    </li>
+                </ul>
+                <button class="btn-prev absolute left-[2%]  top-[34%] max-md:top-[42%] cursor-pointer"><img src="../../assets/icons/circle-chevron-left-(1).svg" alt=""></button>
+                <button class="btn-next absolute left-[89.5%] top-[34%] max-md:top-[42%] cursor-pointer"><img src="../../assets/icons/circle-chevron-right-(1).svg" alt=""></button>
+            </section>
+        </section>
+    </main>
+
+    <footer class="grid grid-cols-2 w-screen bg-secondary-2">
+        <section class="info-contact justify-self-center flex flex-col justify-center items-start">
+            <a href="https://www.instagram.com/kknuui2025desagintong?igsh=MWJpMm83ZTBtZGp3eA==" class="ig flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="url(#gradient)" viewBox="0 0 256 256">
+                    <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#feda75"/>
+                        <stop offset="25%" stop-color="#fa7e1e"/>
+                        <stop offset="50%" stop-color="#d62976"/>
+                        <stop offset="75%" stop-color="#962fbf"/>
+                        <stop offset="100%" stop-color="#4f5bd5"/>
+                    </linearGradient>
+                    </defs>
+                    <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+                </svg>
+                <section class="name-sosial"><p class="uppercase max-md:text-sm">kkn uui desa gintong</p></section>
+            </a>
+            
+            <a href="https://www.tiktok.com/@kkn.uui.2025.desagintong?_t=ZS-8zdpKd9VPI9&_r=1" class="tiktok flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg"  width="32" height="32" viewBox="0 0 256 256">
+                    <!-- Layer cyan -->
+                    <path fill="#25F4EE" d="M224 72a48 48 0 0 1-48-48h-40a8 8 0 0 0-8 8v124a20 20 0 1 1-28.6-18.1 
+                    8 8 0 0 0 4.6-7.3V88a8 8 0 0 0-9.4-7.9A72 72 0 0 0 24 156a76 76 0 0 0 152 0v-39.7
+                    a103.3 103.3 0 0 0 48 11.7 8 8 0 0 0 8-8V80a8 8 0 0 0-8-8z" transform="translate(12,0)"/>
+                    
+                    <!-- Layer merah -->
+                    <path fill="#FE2C55" d="M224 72a48 48 0 0 1-48-48h-40a8 8 0 0 0-8 8v124a20 20 0 1 1-28.6-18.1 
+                    8 8 0 0 0 4.6-7.3V88a8 8 0 0 0-9.4-7.9A72 72 0 0 0 24 156a76 76 0 0 0 152 0v-39.7
+                    a103.3 103.3 0 0 0 48 11.7 8 8 0 0 0 8-8V80a8 8 0 0 0-8-8z" transform="translate(-12,0)"/>
+                    
+                    <!-- Layer hitam utama -->
+                    <path fill="#010101" d="M224 72a48 48 0 0 1-48-48h-40a8 8 0 0 0-8 8v124a20 20 0 1 1-28.6-18.1 
+                    8 8 0 0 0 4.6-7.3V88a8 8 0 0 0-9.4-7.9A72 72 0 0 0 24 156a76 76 0 0 0 152 0v-39.7
+                    a103.3 103.3 0 0 0 48 11.7 8 8 0 0 0 8-8V80a8 8 0 0 0-8-8z"/>
+                </svg>
+                <section class="name-sosial"><p class="uppercase max-md:text-sm">kkn uui desa gintong kelompok 3</p></section>
+            </a>
+            
+            <a href="" class="no-hp-ketua flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="max-md:w-[25%] max-md:h-[25%]" width="32" height="32" viewBox="0 0 256 256">
+                    <path fill="#25D366" d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/>
+                </svg>
+                <section class="name-sosial"><p class="uppercase max-md:text-sm">contact person</p></section>
+            </a>
+        </section>
+
+        <section class="logo-kkn ">
+            <img src="../../assets/img/logo/logo-kkn-transparent.png" alt="">
+        </section>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mediaQuery = window.matchMedia('(min-width: 1024px)');
+
+            function handleScroll() {
+                if (mediaQuery.matches) {
+                const header = document.querySelector('header');
+                if (window.scrollY > 10) {
+                    header.classList.remove('flex-col', 'w-[15%]', 'h-[21%]', 'left-1/2', '-translate-x-1/2');
+                    header.classList.add('flex-row', 'h-[20%]', 'w-[50%]', 'left-[1%]', 'justify-between');
+                } else {
+                    header.classList.remove('flex-row', 'h-[20%]', 'w-[50%]', 'left-[1%]', 'justify-between');
+                    header.classList.add('left-1/2', '-translate-x-1/2', 'w-[15%]', 'h-[21%]', 'flex-col');
+                }
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+
+            mediaQuery.addEventListener('change', handleScroll);
+
+            handleScroll();
+        });
+
+        const hamburger = document.querySelector('.hamburger-menu');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        const list = document.querySelector('.sidebar nav ul li.relative')
+        const sublist = list.querySelector('ul')
+
+        list.addEventListener('click', () => {
+            sublist.classList.add('opacity-100', 'visible')
+            sublist.classList.remove('opacity-0', 'invisible')
+        })
+
+        list.addEventListener('dblclick', () => {
+            sublist.classList.remove('opacity-100', 'visible')
+            sublist.classList.add('opacity-0', 'invisible')
+        })
+
+        // slider img
+        const addEventOnElements = function (elements, eventType, callback) {
+            for (let i = 0, len = elements.length; i < len; i++) {
+                elements[i].addEventListener(eventType, callback);
+            }
+        }
+
+        const listSlider = document.querySelector('.slider ul')
+        const sliderItems = document.querySelectorAll('.slider-item')
+        const sliderBtnPrev = document.querySelector('.btn-prev')
+        const sliderBtnNext = document.querySelector('.btn-next')
+
+
+        let currentSlide = 0
+        let lastActiveSlideItem = sliderItems[0]
+
+        const updateSlide = () => {
+            lastActiveSlideItem.classList.remove('active')
+            sliderItems[currentSlide].classList.add('active')
+            lastActiveSlideItem = sliderItems[currentSlide]
+        }
+
+        const slideNext = () => {
+            if(currentSlide >= sliderItems.length - 1) {
+                currentSlide = 0
+            } else {
+                currentSlide++
+            }
+
+            updateSlide()
+        }
+
+        sliderBtnNext.addEventListener('click', slideNext)
+
+        const slidePrev = () => {
+            if(currentSlide <= 0) {
+                currentSlide = sliderItems.length - 1
+            } else {
+                currentSlide--
+            }
+
+            updateSlide()
+        }
+
+        sliderBtnPrev.addEventListener('click', slidePrev)
+
+
+        // auto slide
+
+        let autoSlideInterval
+
+        const autoSlide = () => {
+            autoSlideInterval = setInterval(() => {
+                slideNext()
+            }, 5000)
+        }
+
+        addEventOnElements([sliderBtnNext, sliderBtnPrev], "mouseover", function () {
+            clearInterval(autoSlideInterval);
+        });
+
+        addEventOnElements([sliderBtnNext, sliderBtnPrev], "mouseout", autoSlide);
+
+        window.addEventListener('load', autoSlide)
+    </script>
+</body>
+</html>

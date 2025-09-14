@@ -1,0 +1,21 @@
+[
+    {
+        "img": "../../assets/img/product/kerajinan/Asbak-kayu.jpg",
+        "name": "asbak kayu",
+        "price": "150 ribu",
+        "description": "kayu dari neraka yang tahan api"
+    }, 
+    {
+        "img": "../../assets/img/product/kerajinan/tudung-saji.jpg",
+        "name": "tudung asaji",
+        "price": "40 ribu",
+        "description": "dari bambu langka terbuat dari berlian"
+    },
+    {
+        "img": "../../assets/img/product/kerajinan/atap-rumbia.jpg",
+        "name": "atap rumbia",
+        "price": "90 ribu",
+        "description": "dari daun sempurna yang berada di surga"
+    }
+
+]

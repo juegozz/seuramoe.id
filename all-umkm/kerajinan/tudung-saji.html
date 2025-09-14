@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../src/output.css" rel="stylesheet">
+    <title>atap rumbia</title>
+    <style>
+        .img-usaha img {
+            width: 35rem;
+            height: 18rem;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+        .hero-section :is(.img-usaha, .description, .information, .maps) {
+            padding: 5% 0;
+        }
+
+        .hero-section .information figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-section .information figure img {
+            width: 2.5rem;
+            height: 3rem;
+        }
+
+        .hero-section .maps a figure iframe {
+            width: 30rem;
+            height: 15rem;
+        }
+
+        
+        /* product */
+        .table-product table :where(th, td) {
+            border: 2px solid black;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .table-product table tbody tr td img {
+            width: 7rem;
+            height: 7rem;
+            margin: auto;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <header></header>
+    <main class="min-h-screen">
+        <section class="hero-section grid grid-cols-2 bg-black/80 place-items-center min-w-screen">
+            <section class="img-usaha">
+                <img src="../../assets/img/usaha-umkm/kerajinan/umkm-12.jpg" alt="">
+            </section>
+
+            <section class="description text-secondary text-justify w-[68ch] mr-[5%]">
+                <h1 class="capitalize text-2xl mb-[.3rem]">tudung saji</h1>
+                <p class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis obcaecati molestias pariatur cupiditate sapiente repellendus deserunt impedit itaque? Aliquam est ducimus dignissimos non officiis adipisci quasi facere aperiam reiciendis illum Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vero quisquam voluptatibus asperiores eius numquam fuga minima vel? Architecto libero dolor eaque voluptatum sed inventore amet, porro ipsam ad expedita.</p>
+            </section>
+
+            <section class="information border-2 border-black rounded-2xl bg-secondary-2 w-[60%] flex justify-around">
+                <figure class="contact">
+                    <img src="../../assets/icons/smartphone.svg" alt="">
+                    <figcaption class="text-center">nomor telepon pemilik <br> <a href="https://wa.me/6285159255371">085159255371</a> </figcaption>
+                </figure>
+                <figure class="name-umkm">
+                    <img src="../../assets/icons/leaf.svg" alt="">
+                    <figcaption class="uppercase text-center">atap daun Bu sekdes</figcaption>
+                </figure>
+            </section>
+
+            <section class="maps">
+                <a href="https://maps.app.goo.gl/VcTm98buM9iBZy8BA">
+                    <figure class="flex justify-center items-center flex-col">
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d756.4415123697871!2d95.89169026947089!3d5.373019334875564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNcKwMjInMjIuOSJOIDk1wrA1MyczMi40IkU!5e1!3m2!1sid!2sid!4v1757030578547!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-2xl"></iframe>
+                        <figcaption class="text-secondary text-center capitalize w-[50ch]">jl. banda aceh - medan Gintong, Kec. Grong-grong, Kabupaten Pidie, Aceh</figcaption>
+                    </figure>
+                </a>
+            </section>
+        </section>
+
+        <!-- product -->
+        <section class="table-product w-screen bg-amber-300 min-h-screen flex justify-center items-start pt-[3%]">
+            <table class="border-collapse w-[90%]">
+                <thead>
+                    <tr>
+                        <th>gambar</th>
+                        <th>nama produk</th>
+                        <th>harga produk</th>
+                        <th>deskripsi produk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </section>
+
+        <aside class="absolute right-[3%] top-[4%] bg-secondary w-[8rem] h-[2rem] rounded-2xl flex justify-center items-center">
+            <section class="back">
+                <ul>
+                    <li><a href="../../all-card-umkm/kerajinan/card-kerajinan.html" class="px-[2.2rem] py-[.2rem]">kembali</a></li>
+                </ul>
+            </section>
+        </aside>
+    </main>
+    <script>
+        async function tableProduct() {
+        try {
+            const response = await fetch('../../data-umkm/table-data.json')
+            if (!response.ok) throw new Error(`Gagal mengambil data: ${response.statusText}`)
+            
+            const result = await response.json()
+            if (!Array.isArray(result)) throw new Error('Data JSON bukan array')
+
+            const containerProduct = document.querySelector('tbody')
+
+            containerProduct.innerHTML = ''
+            result.forEach((produk) => {
+            const element = document.createElement('tr')
+            element.innerHTML = `
+                        <td><img src="${produk.img}" alt=""></td>
+                        <td>${produk.name}</td>
+                        <td>${produk.price}</td>
+                        <td>${produk.description}</td>`
+            containerProduct.appendChild(element)
+            })
+
+
+        } catch (error) {
+            console.error('Error:', error)
+            const containerUmkm = document.querySelector('.all-umkm')
+            if (containerUmkm) {
+            containerUmkm.innerHTML = '<p>Terjadi kesalahan saat memuat data UMKM.</p>'
+            }
+        }
+        }
+
+        document.addEventListener('DOMContentLoaded', tableProduct())
+    </script>
+</body>
+</html>

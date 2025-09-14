@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/img/logo/seuramoe-bg-none.png" type="image/x-icon">
+    <title>Document</title>
+    <link href="../../src/output.css" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+        header {
+            transition: 1s ease-in-out;
+        }
+
+        .hamburger-menu {
+            display: none;
+        }
+
+        .sidebar {
+            background-color: #fffdd0; /* bg-secondary/90 */
+            transform: translateX(100%); /* Mulai di luar layar kanan */
+            transition: transform 0.4s ease; /* Animasi geser */
+            padding: 1.5rem 4rem 0 ;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar :is(.logo, nav) {
+            display: block;
+        }
+
+        .sidebar-overlay {
+            position: absolute;
+            top: 2%;
+            left: 75%;
+            width: max-content;
+            height: max-content;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 999;
+        }
+
+        .sidebar-overlay img {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sub-about li {
+            padding: 3px;
+        }
+
+        .sub-about li:hover {
+            background-color: rgba(74, 44, 42, 0.3);
+        }
+
+        .sub-about li a {
+            display: block;
+            width: 100%;
+        }
+
+        /* content */
+        main .profil .paper-profil {
+            box-shadow: 3px 2px 7px black;
+        }
+
+        main .profil :where(.title, h1) {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main .profil .title::after {
+            content: '';
+            position: absolute;
+            bottom: -.5rem;
+            height: 1.5px;
+            width: 95%;
+            background-color: black;
+        }
+
+        main .profil .title h1::after {
+            content: '';
+            position: absolute;
+            bottom: -.5rem;
+            height: .5rem;
+            width: 100%;
+            background-color: black;
+        }
+
+        main .profil .paper-profil img {
+            width: 75vw;
+            height: 12rem;
+            object-fit: cover;
+            margin: 0 auto;
+        }
+
+        /* kependudukan */
+        #myChart {
+            width: 100%;
+            height: 60vh; 
+            max-width: 100%; 
+        }
+
+        table :where(th, td) {
+            border: 2px solid black;
+            background-color: white;
+            padding: 2%;
+            text-align: center;
+        }
+
+        /* galeri */
+        .galeri {
+            padding-bottom: 5%;
+            margin: 0 auto;
+        }
+
+        .galeri img {
+            border-radius: .4rem;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        @media screen and (max-width: 48rem) {
+            header {
+                display: flex;
+                justify-content: center;
+                align-items:flex-end;
+            }
+            .hamburger-menu {
+                display: block !important;
+                position: relative;
+            }
+            
+            :where(.logo, nav) {
+                display: none;
+            }
+    
+            .hamburger-menu img {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            .peta iframe {
+                width: 70vw;
+                height: 70vh;
+            }
+            #myChart {
+                width: 100%;
+                height: 40vh; 
+                max-width: 100%; 
+            }
+            table tr :is(th, td) {
+                padding: 3%;
+                font-size: 9px;
+            }
+        }
+    </style>
+</head>
+<body class="w-screen overflow-x-hidden">
+    <header class="bg-secondary/70 backdrop-blur-sm max-w-[100%] flex flex-col items-center px-3 fixed left-1/2 -translate-x-1/2 rounded-xl mt-2 h-[21%] w-[15%] transition-all duration-500 ease-in-out z-50 max-md:min-w-[100%] max-md:backdrop-blur-none max-md:bg-transparent max-md:rounded-[0] max-md:mt-0 max-md:h-[7%] max-md:px-[1rem]">
+        <!-- logo -->
+        <section class="logo max-md:hidden max-md:w-[3.5rem] max-md:h-[3.5rem] flex justify-center">
+            <img src="/assets/img/logo/seuramoe-bg-none.png" alt="" width="80px" height="80px">
+        </section>
+
+        <!-- navigation -->
+        <nav>
+            <ul class="flex gap-3 items-center min-h-full text-black">
+                <li><a href="../../index.html" class="">home</a></li>
+                <li class="relative group">
+                    <a href="" class="flex">
+                        about
+                    </a>
+                    <ul class="sub-about absolute bg-secondary/90 backdrop-blur-xl w-[8rem] capitalize text-center rounded-xl invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all duration-[250ms]">
+                        <li><a href="#">profil desa</a></li>
+                        <li><a href="../visi-misi/visi-misi.html">visi - misi</a></li>
+                        <li><a href="../mahasiswa-kkn/mahasiswa-kkn.html">mahasiswa KKN</a></li>
+                    </ul>
+                </li>
+                <li><a href="#umkm" class="">umkm</a></li>
+            </ul>
+        </nav>
+
+        <section class="hamburger-menu bg-secondary">
+            <img src="../../assets/icons/menu.svg" alt="">
+        </section>
+    </header>
+
+    <section class="sidebar fixed top-0 right-0 w-[70%] h-[100%]">
+        <section class="logo w-[100%]">
+            <img src="../../assets/img/logo/seuramoe-bg-none.png" alt="" width="120px" height="120px">
+        </section>
+
+        <!-- navigation -->
+        <nav class="">
+            <ul class="flex gap-5 flex-col justify-center items-center min-h-full text-black">
+                <li><a href="../../index.html" class="capitalize">home</a></li>
+                <li class="relative">
+                    <a href="#" class="flex capitalize">
+                        about
+                    </a>
+                    <ul class="sub-about absolute bg-secondary/90 backdrop-blur-xl w-[8rem] capitalize text-center rounded-xl invisible opacity-0 transition-all duration-[250ms]">
+                        <li><a href="#" class="capitalize">profil desa</a></li>
+                        <li><a href="../visi-misi/visi-misi.html" class="capitalize">visi - misi</a></li>
+                        <li><a href="../mahasiswa-kkn/mahasiswa-kkn.html" class="capitalize">mahasiswa KKN</a></li>
+                    </ul>
+                </li>
+                <li><a href="#berita" class="">Berita</a></li>
+            </ul>
+        </nav>
+
+        <section class="sidebar-overlay">
+            <img src="../../assets/icons/x.svg" alt="">
+        </section>
+    </section>
+
+    <main>
+        <!-- profil -->
+        <section class="profil min-w-screen min-h-min flex justify-center items-center">
+            <section class="paper-profil w-[90%] bg-test m-[10%] mb-[4%] rounded-[8px] overflow-hidden">
+                <section class="title capitalize text-2xl mb-[5%]">
+                    <h1>profil</h1>
+                </section>
+
+                <section class="img">
+                    <img src="../../assets/img/background/2.png" alt="">
+                </section>
+
+                <section class="description w-[90%] m-auto my-[1rem] text-justify">
+                    <p class="indent-[2em] mb-[.5em]">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid dolores aspernatur quidem est voluptas suscipit maiores sequi provident tempora libero, adipisci officiis cumque dolor, odio qui ducimus? Labore, delectus.
+                        Velit iusto eligendi libero, quaerat fuga vitae hic. Animi, velit libero cum neque iste maxime rerum pariatur perferendis facilis recusandae ipsam voluptatibus ullam quos dolorum suscipit nam totam rem inventore.
+                        Reprehenderit minus, iusto ea aperiam dicta molestiae rerum unde tempore, amet eos beatae aliquam consequuntur hic id praesentium? Non esse eum numquam in accusamus saepe laboriosam illo libero optio unde?
+                        Tenetur, praesentium dolorem voluptatum dignissimos asperiores repellat, quo quis fugiat modi ipsam, ab quos iusto obcaecati molestiae aliquid quia excepturi provident totam minima similique? Aspernatur fugit consequatur mollitia doloribus nulla.
+                    </p>
+                    <p class="indent-[2em] mb-[.5em]">
+                        Harum suscipit tempore, quibusdam omnis consectetur aliquid, dolor earum unde a doloremque facere quaerat dicta et necessitatibus magnam exercitationem incidunt hic, vitae sed! Maxime cupiditate deleniti laboriosam nam eos quam?
+                        At, ratione nesciunt. Exercitationem velit, modi sapiente dolorem voluptas similique cupiditate explicabo minima assumenda nihil perferendis a quia sint officiis, quis tempore atque vero nemo? Eius repellat necessitatibus iusto aperiam?
+                        Cupiditate quae sequi quo. Veniam repudiandae dolorum dolor ex explicabo a quidem rerum sed itaque eos asperiores possimus incidunt earum atque illo doloremque quae tempora ad blanditiis, accusantium cupiditate amet.
+                        Placeat possimus autem nisi. Necessitatibus distinctio quibusdam in obcaecati placeat laudantium, sed adipisci aliquid explicabo ullam iure, suscipit accusamus delectus assumenda ab, facilis veniam a nam amet sit vitae aspernatur.
+                        Dolorum porro minima tenetur optio culpa unde enim provident cumque consequuntur ut. Fugiat odit tempore dolorem molestias deleniti? Officia mollitia consequuntur reiciendis odit cupiditate corporis voluptatibus suscipit illum eaque nobis.
+                        Earum voluptate atque tenetur amet labore enim sunt adipisci unde dolor reiciendis neque debitis nihil quia, temporibus illum illo repellendus, nisi molestias rem inventore voluptatem blanditiis dolorem laboriosam dolore. Et Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio odio quod cum vero perferendis nostrum exercitationem, rem laborum.
+                    </p>
+                </section>
+            </section>
+        </section>
+
+        <!-- peta -->
+        <section class="profil min-w-screen min-h-min flex justify-center items-center">
+            <section class="paper-profil w-[90%] bg-test m-[10%] mb-[4%] rounded-[8px] overflow-hidden">
+                <section class="title capitalize text-2xl mb-[5%]">
+                    <h1>peta</h1>
+                </section>
+
+                <section class="peta flex justify-center items-center pb-[3%]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12102.990226531723!2d95.88150472375987!3d5.37674127708781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3040f2a59203f7df%3A0xaa33087a158875d2!2sGintong%2C%20Kec.%20Grong-grong%2C%20Kabupaten%20Pidie%2C%20Aceh!5e1!3m2!1sid!2sid!4v1757510863467!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </section>
+            </section>
+        </section>
+
+        <!-- kependudukan -->
+        <section class="profil min-w-screen min-h-min flex justify-center items-center">
+            <section class="paper-profil w-[90%] bg-test m-[10%] mb-[4%] rounded-[8px] overflow-hidden">
+                <section class="title capitalize text-2xl mb-[5%]">
+                    <h1>kependudukan</h1>
+                </section>
+
+                <section class="peta flex justify-center items-center pb-[3%]">
+                    <canvas id="myChart"></canvas>
+                </section>
+
+                <section class="table-container my-[5%] w-full flex justify-center items-center">
+                    <table class="w-[70vw] h-max max-md:w-[98%] max-md:h-[100%] text-center ">
+                        <thead>
+                            <tr>
+                                <th class="capitalize text-[10px]">nama dusun</th>
+                                <td>laki-laki</td>
+                                <td>perempuan</td>
+                                <td>jumlah</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Dusun Babah Rapat</th>
+                                <td>104</td>
+                                <td>112</td>
+                                <td>216</td>
+                            </tr>
+                            <tr>
+                                <th>Dusun Teungoh</th>
+                                <td>100</td>
+                                <td>110</td>
+                                <td>210</td>
+                            </tr>
+                            <tr>
+                                <th>Dusun Teureunee</th>
+                                <td>119</td>
+                                <td>130</td>
+                                <td>249</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>total</td>
+                                <td colspan="3">675</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </section>
+            </section>
+        </section>
+
+        <!-- galeri -->
+        <section class="profil min-w-screen min-h-min flex justify-center items-center">
+            <section class="paper-profil w-[90%] min-h-[50vh] bg-test m-[10%] mb-[4%] rounded-[8px] overflow-y-auto">
+                <section class="title capitalize text-2xl mb-[5%]">
+                    <h1>galeri</h1>
+                </section>
+
+                <section class="galeri grid grid-cols-4 max-md:grid-cols-2 pb-[3%] gap-4 max-md:gap-2 max-md:gap-x-5 mx-auto w-[75vw] max-md:w-[80%] max-md:gap-y-4">
+                    <img src="../../assets/img/background/bg-1.jpg" alt="">
+                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                    <img src="../../assets/img/background/bg-3.jpg" alt="">
+                    <img src="../../assets/img/background/bg-5.jpg" alt="">
+
+                    <img src="../../assets/img/background/bg-1.jpg" alt="">
+                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                    <img src="../../assets/img/background/bg-3.jpg" alt="">
+                    <img src="../../assets/img/background/bg-5.jpg" alt="">
+
+                    <img src="../../assets/img/background/bg-1.jpg" alt="">
+                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                    <img src="../../assets/img/background/bg-3.jpg" alt="">
+                    <img src="../../assets/img/background/bg-5.jpg" alt="">
+
+                    <img src="../../assets/img/background/bg-1.jpg" alt="">
+                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                    <img src="../../assets/img/background/bg-3.jpg" alt="">
+                    <img src="../../assets/img/background/bg-5.jpg" alt="">
+
+                    <img src="../../assets/img/background/bg-1.jpg" alt="">
+                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                    <img src="../../assets/img/background/bg-3.jpg" alt="">
+                    <img src="../../assets/img/background/bg-5.jpg" alt="">
+
+                    <img src="../../assets/img/background/bg-1.jpg" alt="">
+                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                    <img src="../../assets/img/background/bg-3.jpg" alt="">
+                    <img src="../../assets/img/background/bg-4.jpg" alt="">
+
+                    <img src="../../assets/img/background/bg-1.jpg" alt="">
+                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                    <img src="../../assets/img/background/bg-3.jpg" alt="">
+                    <img src="../../assets/img/background/bg-4.jpg" alt="">
+                    
+                    <img src="../../assets/img/background/bg-1.jpg" alt="">
+                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                    <img src="../../assets/img/background/bg-3.jpg" alt="">
+                    <img src="../../assets/img/background/bg-4.jpg" alt="">
+                    
+                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                    <img src="../../assets/img/background/bg-4.jpg" alt="">
+                </section>
+            </section>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mediaQuery = window.matchMedia('(min-width: 1024px)');
+
+            function handleScroll() {
+                if (mediaQuery.matches) {
+                const header = document.querySelector('header');
+                if (window.scrollY > 10) {
+                    header.classList.remove('flex-col', 'w-[15%]', 'h-[21%]', 'left-1/2', '-translate-x-1/2');
+                    header.classList.add('flex-row', 'h-[20%]', 'w-[50%]', 'left-[1%]', 'justify-between');
+                } else {
+                    header.classList.remove('flex-row', 'h-[20%]', 'w-[50%]', 'left-[1%]', 'justify-between');
+                    header.classList.add('left-1/2', '-translate-x-1/2', 'w-[15%]', 'h-[21%]', 'flex-col');
+                }
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+
+            mediaQuery.addEventListener('change', handleScroll);
+
+            handleScroll();
+        });
+    </script>
+
+    <script src="chart.umd.js"></script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+        const canvas = document.getElementById('myChart');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const ctx = canvas.getContext('2d');
+                    new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Dusun Babah Rapat', 'Dusun Teungoh', 'Dusun Teureunee'],
+                            datasets: [{
+                                data: [216, 210, 249],
+                                backgroundColor: ['#f74d4d', '#8c9bb5', '#FFFF00']
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            animation: {
+                                animateRotate: true,
+                                animateScale: true
+                            },
+                            plugins: {
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            let label = context.label || '';
+                                            let value = context.raw || 0;
+                                            return `${label}: ${value} penduduk`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    observer.unobserve(canvas);
+                }
+            });
+        }, { root: null, threshold: 0.1 });
+
+        if (canvas) observer.observe(canvas);
+    });
+
+    const hamburger = document.querySelector('.hamburger-menu');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        const list = document.querySelector('.sidebar nav ul li.relative')
+        const sublist = list.querySelector('ul')
+
+        list.addEventListener('click', () => {
+            sublist.classList.add('opacity-100', 'visible')
+            sublist.classList.remove('opacity-0', 'invisible')
+        })
+
+        list.addEventListener('dblclick', () => {
+            sublist.classList.remove('opacity-100', 'visible')
+            sublist.classList.add('opacity-0', 'invisible')
+        })
+    </script>
+
+</body>
+</html>

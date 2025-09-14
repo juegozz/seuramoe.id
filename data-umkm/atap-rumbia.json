@@ -1,0 +1,32 @@
+[
+    {
+        "background" : "../../assets/img/background/bg-1.jpg",
+        "title" : "atap rumbia",
+        "alamat" : "Jalan Grong Baru No. 15, Desa Grong Grong, Kecamatan Grong Grong",
+        "link" : "../../all-umkm/kerajinan/atap-rumbiaa.html"
+    },
+    {
+        "background" : "../../assets/img/background/bg-2.jpg",
+        "title" : "tudung saji",
+        "alamat" : "Jalan Karieng Utama No. 22, Desa Karieng, Kecamatan Grong Grong",
+        "link" : "../../all-umkm/kerajinan/tudung-saji.html"
+    },
+    {
+        "background" : "../../assets/img/background/bg-3.jpg",
+        "title" : "atap pisang",
+        "alamat" : "Jalan Beureuleung Raya No. 8, Desa Beureuleung, Kecamatan Grong Grong",
+        "link" : "../../all-umkm/kerajinan/atap-pisang.html"
+    },
+    {
+        "background" : "../../assets/img/background/bg-4.jpg",
+        "title" : "papan tulis",
+        "alamat" : "Jalan Gintong Selatan No. 5, Desa Gintong, Kecamatan Grong Grong",
+        "link" : "../../all-umkm/kerajinan/papan-tulis.html"
+    },
+    {
+        "background" : "../../assets/img/background/bg-5.jpg",
+        "title" : "asbak rokok",
+        "alamat" : "Jalan Daka Timur No. 30, Desa Daka, Kecamatan Grong Grong",
+        "link" : "../../all-umkm/kerajinan/asbak-rokok.html"
+    }
+]

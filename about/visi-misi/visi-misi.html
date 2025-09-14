@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/img/logo/seuramoe-bg-none.png" type="image/x-icon">
+    <link href="../../src/output.css" rel="stylesheet">
+    <title>visi - misi</title>
+    <style>
+        * {
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+        header {
+            transition: 1s ease-in-out;
+        }
+
+        .hamburger-menu {
+            display: none;
+        }
+
+        .sidebar {
+            background-color: #fffdd0; /* bg-secondary/90 */
+            transform: translateX(100%); /* Mulai di luar layar kanan */
+            transition: transform 0.4s ease; /* Animasi geser */
+            padding: 1.5rem 4rem 0 ;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar :is(.logo, nav) {
+            display: block;
+        }
+
+        .sidebar-overlay {
+            position: absolute;
+            top: 2%;
+            left: 75%;
+            width: max-content;
+            height: max-content;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 999;
+        }
+
+        .sidebar-overlay img {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sub-about li {
+            padding: 3px;
+        }
+
+        .sub-about li:hover {
+            background-color: rgba(74, 44, 42, 0.3);
+        }
+
+        .sub-about li a {
+            display: block;
+            width: 100%;
+        }
+
+        /* content */
+        main .hero-section {
+            grid-template-areas: "inf img"
+                                 "catec img";
+        }
+
+        main .hero-section .information {
+            grid-area: inf;
+        }
+        
+        main .hero-section .img-mahasiswa {
+            grid-area: img;
+            grid-template-columns: 15rem 15rem;
+            justify-content: center;
+        }
+
+
+        main .hero-section .img-mahasiswa .kegiatan img {
+            width: 60vw;
+            height: 30vh;
+        }
+        
+        main .hero-section .kategori-umkm {
+            grid-area: catec;
+            
+        }
+        main .hero-section .kategori-umkm figure img {
+            width: 7rem;
+            height: 5rem;
+        }
+        
+        main .hero-section :is(.img-mahasiswa .kegiatan, .kategori-umkm figure) img {
+            border-radius: 1rem;
+            object-fit: cover;            
+        }
+
+        /* visi-misi */
+        main .visi-misi :is(.visi, .misi) .content {
+            box-shadow: 8px 8px 7px rgba(0, 0, 0, 0.98);
+            margin-top: 1rem;
+        }
+
+        main .visi-misi .misi .content ul li {
+            transition: .25s ease-in-out;
+            padding: 1% 0;
+        }
+
+        @media screen and (max-width: 48rem) {
+            header {
+                display: flex;
+                justify-content: center;
+                align-items:flex-end;
+            }
+            .hamburger-menu {
+                display: block !important;
+                position: relative;
+            }
+            
+            :where(.logo, nav) {
+                display: none;
+            }
+    
+            .hamburger-menu img {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            main .hero-section {
+                grid-template-areas: "inf"
+                                     "catec"
+                                     "img"
+                                     "img";
+            }
+
+            main .hero-section .img-mahasiswa {
+                grid-area: img;
+                grid-template-columns: 42% 42%;
+                justify-content: center;
+            }
+            main .hero-section .img-mahasiswa .kegiatan img {
+                width: 40vw;
+                height: 35vh;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dominant overflow-x-hidden">
+    <header class="bg-secondary/70 backdrop-blur-sm max-w-[100%] flex flex-col items-center px-3 fixed left-1/2 -translate-x-1/2 rounded-xl mt-2 h-[21%] w-[15%] transition-all duration-500 ease-in-out z-50 max-md:min-w-[100%] max-md:backdrop-blur-none max-md:bg-transparent max-md:rounded-[0] max-md:mt-0 max-md:h-[7%] max-md:px-[1rem]">
+        <!-- logo -->
+        <section class="logo">
+            <img src="/assets/img/logo/seuramoe-bg-none.png" alt="" width="80px" height="80px">
+        </section>
+
+        <!-- navigation -->
+        <nav>
+            <ul class="flex gap-3 items-center min-h-full text-black">
+                <li><a href="../../index.html" class="">home</a></li>
+                <li class="relative group">
+                    <a href="#home" class="flex">
+                        about
+                    </a>
+                    <ul class="sub-about absolute bg-secondary/90 backdrop-blur-xl w-[8rem] capitalize text-center invisible rounded-xl opacity-0 group-hover:opacity-100 group-hover:visible transition-all duration-[250ms] overflow-hidden">
+                        <li><a href="../profil-desa/profil-desa.html">profil desa</a></li>
+                        <li><a href="#">visi - misi</a></li>
+                        <li><a href="../mahasiswa-kkn/mahasiswa-kkn.html">mahasiswa KKN</a></li>
+                    </ul>
+                </li>
+                <li><a href="#umkm" class="">umkm</a></li>
+            </ul>
+        </nav>
+
+        <section class="hamburger-menu bg-secondary">
+            <img src="../../assets/icons/menu.svg" alt="">
+        </section>
+    </header>
+
+    <section class="sidebar fixed top-0 right-0 w-[70%] h-[100%]">
+        <section class="logo w-[100%]">
+            <img src="/assets/img/logo/seuramoe-bg-none.png" alt="" width="120px" height="120px">
+        </section>
+
+        <!-- navigation -->
+        <nav class="">
+            <ul class="flex gap-5 flex-col justify-center items-center min-h-full text-black">
+                <li><a href="../../index.html" class="capitalize">home</a></li>
+                <li class="relative">
+                    <a href="#" class="flex capitalize">
+                        about
+                    </a>
+                    <ul class="sub-about absolute bg-secondary/90 backdrop-blur-xl w-[8rem] capitalize text-center rounded-xl invisible opacity-0 transition-all duration-[250ms]">
+                        <li><a href="../profil-desa/profil-desa.html" class="capitalize">profil desa</a></li>
+                        <li><a href="#" class="capitalize">visi - misi</a></li>
+                        <li><a href="../mahasiswa-kkn/mahasiswa-kkn.html" class="capitalize">mahasiswa KKN</a></li>
+                    </ul>
+                </li>
+                <li><a href="#berita" class="">Berita</a></li>
+            </ul>
+        </nav>
+
+        <section class="sidebar-overlay">
+            <img src="../../assets/icons/x.svg" alt="">
+        </section>
+    </section>
+
+    <main>
+        <section class="hero-section min-h-screen grid grid-cols-2 max-md:grid-cols-1">
+            
+            <section class="information text-center content-center pt-[15%]">
+                <h1 class="text-lg text-secondary mb-[1rem] max-md:mx-[15%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Do</h1>
+                <p class="w-[65ch] mx-auto text-justify max-md:w-[35ch] text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus officiis ab dolor blanditiis, odit, maxime recusandae reiciendis exercitationem consequatur illum tempore dolorem adipisci omnis delectus perspiciatis provident similique. Rerum, autem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, asperiores ut, sed officia cum totam tempore eaque voluptates labore ipsam iure id praesentium quod saepe modi molestias facilis rem accusantium?</p>
+            </section>
+
+            <section class="img-mahasiswa grid justify-self-center gap-[2%] min-h-screen pb-[1rem] mt-[20%] w-[100%] relative max-md:mt-[1%] max-md:justify-items-center">
+                <section class="kegiatan content-center">
+                    <img src="../../assets/img/background/bg-5.jpg" alt="">
+                </section>
+
+                <section class="kegiatan content-end">
+                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                </section>
+
+                <section class="kegiatan relative top-[-8vh] max-md:top-0">
+                    <img src="../../assets/img/background/bg-1.jpg" alt="">
+                </section>
+
+                <section class="kegiatan content-center">
+                    <img src="../../assets/img/background/bg-3.jpg" alt="">
+                </section>
+            </section>
+            
+            <section class="kategori-umkm flex justify-around items-start max-md:pt-[7%] max-md:justify-evenly text-center text-secondary-2">
+                <figure class="kategori">
+                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                    <figcaption>kerajinan</figcaption>
+                </figure>
+
+                <figure class="kategori">
+                    <img src="../../assets/img/background/bg-1.jpg" alt="">
+                    <figcaption>makanan</figcaption>
+                </figure>
+
+                <figure class="kategori">
+                    <img src="../../assets/img/background/bg-4.jpg" alt="">
+                    <figcaption>sembako</figcaption>
+                </figure>
+            </section>
+        </section>
+
+
+        <!-- visi dan misi -->
+        <section class="visi-misi min-h-screen grid grid-cols-2 max-md:grid-cols-1 max-md:items-center justify-items-center pt-[9%] w-screen">
+            <section class="visi text-center text-dominant">
+                <h1 class="text-center text-3xl text-secondary uppercase">visi</h1>
+                <section class="content bg-secondary w-[45vw] rounded-2xl text-justify p-[5%] max-md:w-[80vw]">
+                    <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates vero molestiae dolor laborum, impedit, deserunt, itaque cupiditate repellendus libero error voluptate pariatur. Voluptatem dolores saepe fugiat. Nam, deleniti fugiat! Modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur distinctio recusandae exercitationem assumenda voluptates, cumque quo ad maiores placeat, neque, ut laboriosam numquam eligendi magni perferendis! Reprehenderit unde quas rem.
+                    Dolor ex veniam fuga perspiciatis rem? Placeat qui eligendi iusto at laudantium tempore neque animi praesentium consequatur fuga, obcaecati sapiente repellat quisquam! Corporis fugit illum deleniti aliquam id est ea?</p>
+                </section>
+            </section>
+            
+            <section class="misi max-md:py-[20%]">
+                <h1 class="text-center text-3xl text-secondary uppercase">misi</h1>
+                <section class="content bg-secondary rounded-2xl p-[5%] pl-[12%] w-[40vw] max-md:w-[80vw]">
+                    <ul class="list-decimal">
+                        <li class="hover:scale-[1.1]">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit
+                        </li>
+                        <li class="hover:scale-[1.1]">
+                            nostrum quas perferendis quidem, possimus dolorem esse deserunt.
+                        </li>
+                        <li class="hover:scale-[1.1]">
+                            voluptate cumque aspernatur dolore quod nihil ad, iusto optio
+                        </li>
+                        <li class="hover:scale-[1.1]">
+                             Et tenetur blanditiis architecto vitae,
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mediaQuery = window.matchMedia('(min-width: 1024px)');
+
+            function handleScroll() {
+                if (mediaQuery.matches) {
+                const header = document.querySelector('header');
+                if (window.scrollY > 10) {
+                    header.classList.remove('flex-col', 'w-[15%]', 'h-[21%]', 'left-1/2', '-translate-x-1/2');
+                    header.classList.add('flex-row', 'h-[20%]', 'w-[50%]', 'left-[1%]', 'justify-between');
+                } else {
+                    header.classList.remove('flex-row', 'h-[20%]', 'w-[50%]', 'left-[1%]', 'justify-between');
+                    header.classList.add('left-1/2', '-translate-x-1/2', 'w-[15%]', 'h-[21%]', 'flex-col');
+                }
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+
+            mediaQuery.addEventListener('change', handleScroll);
+
+            handleScroll();
+        });
+
+        const hamburger = document.querySelector('.hamburger-menu');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        const list = document.querySelector('.sidebar nav ul li.relative')
+        const sublist = list.querySelector('ul')
+
+        list.addEventListener('click', () => {
+            sublist.classList.add('opacity-100', 'visible')
+            sublist.classList.remove('opacity-0', 'invisible')
+        })
+
+        list.addEventListener('dblclick', () => {
+            sublist.classList.remove('opacity-100', 'visible')
+            sublist.classList.add('opacity-0', 'invisible')
+        })
+    </script>
+
+</body>
+</html>

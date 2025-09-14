@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/logo/seuramoe-bg-none.png" type="image/x-icon">
+    <link href="./src/output.css" rel="stylesheet">
+    <title>Seuramoe Umkm</title>
+    <style>
+        * {
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+        header {
+            transition: 1s ease-in-out;
+        }
+
+        
+
+        .hamburger-menu {
+            display: none;
+        }
+
+        .sidebar {
+            background-color: #fffdd0;
+            transform: translateX(100%); 
+            transition: transform 0.4s ease;
+            padding: 1.5rem 4rem 0 ;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar :is(.logo, nav) {
+            display: block;
+        }
+
+        .sidebar-overlay {
+            position: absolute;
+            top: 2%;
+            left: 75%;
+            width: max-content;
+            height: max-content;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 999;
+        }
+
+        .sidebar-overlay img {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sub-about li {
+            padding: 3px;
+        }
+
+        .sub-about li:hover {
+            background-color: rgba(74, 44, 42, 0.3);
+        }
+
+        .sub-about li a {
+            display: block;
+            width: 100%;
+        }
+
+        main .hero-section .icon::before {
+            content: '';
+            position: absolute;
+            left: 47.2%;
+            transform: translateX(-50%);
+            bottom: 60.5%;
+            width: 5.5vw;
+            height: 12vh;
+            border: 2px solid #4a2c2a;
+            border-radius: 10px;
+        }
+
+        main .hero-section .icon .svg-icon {
+            position: absolute;
+            transition: 0.5s linear;
+            cursor: pointer;
+            z-index: 15;
+            width: max-content;
+            height: max-content;
+        }
+
+        main .hero-section .img-umkm :is(.kerajinan, .makanan, .sembako) img {
+            width: 7vw;
+            height: 10vh;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        main .hero-section .img-umkm section {
+            position: absolute;
+            flex: 1 1 20vw;
+        }
+        
+        main #berita {
+            grid-template-areas: 'judul judul'
+                                 'berita1 berita2'
+                                 'berita3 berita4';
+        }
+
+        main #berita .title {
+            grid-area: judul;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        main #berita .title::after {
+            content: '';
+            position: absolute;
+            bottom: -.5rem;
+            height: 3px;
+            width: 30%;
+            background-color: #fffdd0;
+        }
+        
+        main #berita .title h1::after {
+            content: '';
+            position: absolute;
+            border-radius: 10px;
+            bottom: 5rem;
+            height: .5rem;
+        }
+
+        main #berita .berita {
+            border: 5px solid #fffdd0;
+            background-color: rgba(255, 255, 255, 0.52);
+            padding: 2rem 0;
+        }
+
+        main #berita .berita .img-information img {
+            width: 35vw;
+            height: 30vh;
+            box-shadow: 12px 10px 4px grey;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        main #berita .berita .main-img {
+            line-height: 18px;
+            text-align: justify;
+            width: 60ch;
+            margin: 1.5rem 0 .1rem; 
+        }
+
+        @media screen and (max-width: 48rem) {
+            header {
+                display: flex;
+                justify-content: center;
+                align-items:flex-end;
+            }
+            
+            .hamburger-menu {
+                display: block !important;
+                position: relative;
+            }
+            
+            :where(.logo, nav) {
+                display: none;
+            }
+    
+            .hamburger-menu img {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            main .hero-section .img-umkm :is(.kerajinan, .makanan, .sembako) img {
+                width: 12vw;
+                height: 4vh;
+            }
+
+            main .hero-section .icon::before {
+                width: 10vw;
+                height: 5vh;
+                left: 45%;
+                bottom: 55%;
+            }
+
+            main #berita .berita .img-information img {
+                width: 60vw;
+                height: 15vh;
+            }
+
+            main #berita {
+            grid-template-areas: 'judul'
+                                 'berita1 '
+                                 'berita2'
+                                 'berita3'
+                                 'berita4';
+            }
+
+            main #berita .berita .main-img {
+            line-height: 18px;
+            text-align: justify;
+            width: 35ch;
+            margin: 1.5rem 0 .1rem; 
+        }
+            
+        }
+        
+    </style>
+</head>
+<body class="overflow-x-hidden min-w-screen">
+    <header class="bg-secondary/70 backdrop-blur-sm max-w-[100%] flex flex-col items-center px-3 fixed left-1/2 -translate-x-1/2 rounded-xl mt-2 h-[21%] w-[15%] transition-all duration-500 ease-in-out z-50 max-md:min-w-[100%] max-md:backdrop-blur-none max-md:bg-transparent max-md:rounded-[0] max-md:mt-0 max-md:h-[7%] max-md:px-[1rem]">
+        
+        <!-- logo -->
+        <section class="logo max-md:hidden max-md:w-[3.5rem] max-md:h-[3.5rem] flex justify-center">
+            <img src="/assets/img/logo/seuramoe-bg-none.png" alt="" width="80px" height="80px">
+        </section>
+
+        <!-- navigation -->
+        <nav class="max-md:hidden">
+            <ul class="flex gap-3 items-center min-h-full text-black">
+                <li><a href="#home" class="capitalize">home</a></li>
+                <li class="relative group">
+                    <a href="#home" class="flex capitalize">
+                        about
+                    </a>
+                    <ul class="sub-about absolute bg-secondary/90 backdrop-blur-xl w-[8rem] capitalize text-center rounded-xl invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all duration-[250ms]">
+                        <li><a href="/about/profil-desa/profil-desa.html" class="capitalize">profil desa</a></li>
+                        <li><a href="/about/visi-misi/visi-misi.html" class="capitalize">visi - misi</a></li>
+                        <li><a href="/about/mahasiswa-kkn/mahasiswa-kkn.html" class="capitalize">mahasiswa KKN</a></li>
+                    </ul>
+                </li>
+                <li><a href="#berita" class="">Berita</a></li>
+            </ul>
+        </nav>
+
+        <!-- hamburger menu -->
+        <section class="hamburger-menu bg-secondary">
+            <img src="assets/icons/menu.svg" alt="">
+        </section>
+    </header>
+
+
+
+
+    <!-- sidebar -->
+    <section class="sidebar fixed top-0 right-0 w-[70%] h-[100%]">
+        <section class="logo w-[100%]">
+            <img src="/assets/img/logo/seuramoe-bg-none.png" alt="" width="120px" height="120px">
+        </section>
+
+        <!-- navigation -->
+        <nav class="">
+            <ul class="flex gap-5 flex-col justify-center items-center min-h-full text-black">
+                <li><a href="#home" class="capitalize">home</a></li>
+                <li class="relative">
+                    <a href="#home" class="flex capitalize">
+                        about
+                    </a>
+                    <ul class="sub-about absolute bg-secondary/90 backdrop-blur-xl w-[8rem] capitalize text-center rounded-xl invisible opacity-0 transition-all duration-[250ms]">
+                        <li><a href="/about/profil-desa/profil-desa.html" class="capitalize">profil desa</a></li>
+                        <li><a href="/about/visi-misi/visi-misi.html" class="capitalize">visi - misi</a></li>
+                        <li><a href="/about/mahasiswa-kkn/mahasiswa-kkn.html" class="capitalize">mahasiswa KKN</a></li>
+                    </ul>
+                </li>
+                <li><a href="#berita" class="">Berita</a></li>
+            </ul>
+        </nav>
+
+        <section class="sidebar-overlay">
+            <img src="/assets/icons/x.svg" alt="">
+        </section>
+    </section>
+
+    
+
+    <main class="">
+        <!-- hero section -->
+        <section id="home" class="hero-section text-center relative min-h-[37rem] grid grid-rows-2 bg-[url(/assets/img/background/feed-i.png)] bg-cover bg-center max-md:min-h-[15rem] max-md:bg-position-[center_top_35%]">
+
+            <!-- tagline -->
+            <section class="tagline text-2xl text-secondary text-shadow-lg/95 text-shadow-dominant font-serif grid place-content-center content-end pb-10 max-md:text-sm max-md:pb-5">
+                <h1 class="w-[25ch]">Gerbang Digital UMKM Kita Masuk ke Terasnya, Temukan Usahanya</h1>
+            </section>
+
+            <!-- icon -->
+            <section class="icon relative before:animate-rotate360 flex justify-center items-start pt-14 max-md:pt-0">
+                <section class="all-icon w-[4vw] z-30 flex justify-center items-start">
+                    <section class="svg-icon leaf opacity-[0]" data-show="leaf">
+                        <img src="/assets/icons/leaf.svg" alt="" class="w-[4vw] h-[9vh] max-md:w-[5.5vw] max-md:h-[10vh]">
+                    </section>
+                    <section class="svg-icon utensils opacity-[0]" data-show="utensils">
+                        <img src="/assets/icons/utensils-crossed.svg" alt="" class="w-[4vw] h-[9vh] max-md:w-[5.5vw] max-md:h-[10vh]">
+                    </section>
+                    <section class="svg-icon shopp opacity-[0]" data-show="shopp">
+                        <img src="/assets/icons/shopping-cart.svg" alt="" class="w-[4vw] h-[9vh] max-md:w-[5.5vw] max-md:h-[10vh]">
+                    </section>
+                </section>
+            </section>
+
+            <section class="img-umkm w-screen relative min-h-max">
+                <section class="kerajinan bottom-[32vh] left-[55vw] max-md:bottom-[10vh] max-md:left-[58vw]" data-category="leaf">
+                    <a href="/all-card-umkm/kerajinan/card-kerajinan.html">
+                        <img src="assets/img/usaha-umkm/kerajinan/umkm-12.jpg" alt="" class="transition-all duration-500 translate-x-[-7.8rem] scale-0 ">
+                    </a>
+                </section>
+
+                <section class="makanan bottom-[32vh] left-[38vw] max-md:bottom-[10vh] max-md:left-[30vw]" data-category="utensils">
+                    <a href="/all-card-umkm/makanan/card-makanan.html">
+                        <img src="assets/img/usaha-umkm/makanan/umkm-1.jpg" alt="" class="transition-all duration-500 translate-x-[7.8rem] scale-0">
+                    </a>
+                </section>
+
+
+                <section class="sembako bottom-[16vh] left-[46.5vw] max-md:bottom-[4vh] max-md:left-[44vw]" data-category="handbag">
+                    <a href="/all-card-umkm/sembako/card-sembako.html">
+                        <img src="assets/img/usaha-umkm/aksesoris/umkm-5.jpg" alt="" class="transition-all duration-500 translate-y-[-5.8rem] scale-0">
+                    </a>
+                </section>
+
+            </section>
+
+        </section>
+
+        <!-- berita section -->
+        <section id="berita" class="relative min-h-screen grid grid-cols-2 max-md:grid-cols-1 pt-[8%] bg-test">
+            <section class="title relative uppercase text-4xl mb-[2.5%] text-secondary max-md:text-2xl max-md:mb-[5%]">
+                <h1>berita</h1>
+            </section>
+
+            <section class="berita">
+                <section class="img-information place-self-center">
+                    <img src="assets/img/usaha-umkm/kerajinan/Daun-Rumbia.jpeg" alt="Daun rumbia">
+                </section>
+                <section class="main-img place-self-center">
+                    <h2 class="text-lg font-bold mb-3 text-center max-md:text-sm">Dari Daun Rumbia Menjadi Rupiah</h2>
+                    <p class="max-md:text-xs">Dengan terampil, Ibu Nuraini mengubah daun rumbia menjadi atap yang kuat dan estetik. Karyanya tidak hanya menunjukkan keahliannya, tetapi juga menjadi contoh bagaimana kearifan lokal dapat menjadi sumber penghasilan yang berkelanjutan.</p>
+                </section>
+            </section>
+            <section class="berita">
+                <section class="img-information place-self-center">
+                    <img src="assets/img/usaha-umkm/makanan/kedai-jajan.jpeg" alt="">
+                </section>
+                <section class="main-img place-self-center">
+                    <h2 class="text-lg font-bold mb-3 text-center max-md:text-sm">Warung UMKM dengan Sajian Nikmat</h2>
+                    <p class="max-md:text-xs">Kisah Warung Ibu Novi adalah bukti nyata bahwa usaha kecil dapat berkembang dan memberikan dampak positif. Kelezatan masakan dan keramahan pemiliknya menjadi resep sukses yang menginspirasi.</p>
+                </section>
+            </section>
+            <section class="berita">
+                <section class="img-information place-self-center">
+                    <img src="assets/img/background/bg-1.jpg" alt="">
+                </section>
+                <section class="main-img place-self-center">
+                    <h2 class="text-lg font-bold mb-3 text-center max-md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing</h2>
+                    <p class="max-md:text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime laboriosam dolor debitis minima, suscipit nemo commodi hic, similique exercitationem culpa quos perspiciatis, eum tenetur ipsum harum obcaecati pariatur nihil</p>
+                </section>
+            </section>
+            <section class="berita">
+                <section class="img-information place-self-center">
+                    <img src="assets/img/background/bg-4.jpg" alt="">
+                </section>
+                <section class="main-img place-self-center">
+                    <h2 class="text-lg font-bold mb-3 text-center max-md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing</h2>
+                    <p class="max-md:text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime laboriosam dolor debitis minima, suscipit nemo commodi hic, similique exercitationem culpa quos perspiciatis, eum tenetur ipsum harum obcaecati pariatur nihil</p>
+                </section>
+            </section>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mediaQuery = window.matchMedia('(min-width: 1024px)');
+
+            function handleScroll() {
+                if (mediaQuery.matches) {
+                const header = document.querySelector('header');
+                if (window.scrollY > 10) {
+                    header.classList.remove('flex-col', 'w-[15%]', 'h-[21%]', 'left-1/2', '-translate-x-1/2');
+                    header.classList.add('flex-row', 'h-[20%]', 'w-[50%]', 'left-[1%]', 'justify-between');
+                } else {
+                    header.classList.remove('flex-row', 'h-[20%]', 'w-[50%]', 'left-[1%]', 'justify-between');
+                    header.classList.add('left-1/2', '-translate-x-1/2', 'w-[15%]', 'h-[21%]', 'flex-col');
+                }
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+
+            mediaQuery.addEventListener('change', handleScroll);
+
+            handleScroll();
+        });
+
+        const hamburger = document.querySelector('.hamburger-menu');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        const list = document.querySelector('.sidebar nav ul li.relative')
+        const sublist = list.querySelector('ul')
+
+        list.addEventListener('click', () => {
+            sublist.classList.add('opacity-100', 'visible')
+            sublist.classList.remove('opacity-0', 'invisible')
+        })
+
+        list.addEventListener('dblclick', () => {
+            sublist.classList.remove('opacity-100', 'visible')
+            sublist.classList.add('opacity-0', 'invisible')
+        })
+
+        // console.log(sublist)
+    </script>
+</body>
+</html>
