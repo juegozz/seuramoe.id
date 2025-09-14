@@ -633,6 +633,9 @@
   .bg-test {
     background-color: var(--color-test);
   }
+  .bg-\[url\(\.\.\/assets\/img\/background\/feed-i\.png\)\] {
+    background-image: url(../assets/img/background/feed-i.png);
+  }
   .bg-\[url\(\.\/assets\/img\/background\/feed-i\.png\)\] {
     background-image: url(./assets/img/background/feed-i.png);
   }
