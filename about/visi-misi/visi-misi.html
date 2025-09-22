@@ -98,12 +98,12 @@
             grid-area: catec;
             
         }
-        main .hero-section .kategori-umkm figure img {
+        main .hero-section .kategori-umkm a img {
             width: 7rem;
             height: 5rem;
         }
         
-        main .hero-section :is(.img-mahasiswa .kegiatan, .kategori-umkm figure) img {
+        main .hero-section :is(.img-mahasiswa .kegiatan, .kategori-umkm a) img {
             border-radius: 1rem;
             object-fit: cover;            
         }
@@ -128,6 +128,11 @@
             .hamburger-menu {
                 display: block !important;
                 position: relative;
+            }
+
+            .sidebar .logo {
+                display: flex;
+                justify-content: center;
             }
             
             :where(.logo, nav) {
@@ -155,6 +160,10 @@
                 width: 40vw;
                 height: 35vh;
             }
+            main .hero-section .kategori-umkm a img {
+                width: 5rem;
+                height: 3rem;
+            }
         }
     </style>
 </head>
@@ -179,7 +188,7 @@
                         <li><a href="../mahasiswa-kkn/mahasiswa-kkn.html">mahasiswa KKN</a></li>
                     </ul>
                 </li>
-                <li><a href="#umkm" class="">umkm</a></li>
+                <li><a href="../../index.html#berita" class="">Berita</a></li>
             </ul>
         </nav>
 
@@ -207,7 +216,7 @@
                         <li><a href="../mahasiswa-kkn/mahasiswa-kkn.html" class="capitalize">mahasiswa KKN</a></li>
                     </ul>
                 </li>
-                <li><a href="#berita" class="">Berita</a></li>
+                <li><a href="../../index.html#berita" class="">Berita</a></li>
             </ul>
         </nav>
 
@@ -226,37 +235,37 @@
 
             <section class="img-mahasiswa grid justify-self-center gap-[2%] min-h-screen pb-[1rem] mt-[20%] w-[100%] relative max-md:mt-[1%] max-md:justify-items-center">
                 <section class="kegiatan content-center">
-                    <img src="../../assets/img/background/bg-5.jpg" alt="">
+                    <img src="../../assets/img/background/kegiatan-1.webp" alt="">
                 </section>
 
                 <section class="kegiatan content-end">
-                    <img src="../../assets/img/background/bg-2.jpg" alt="">
+                    <img src="../../assets/img/background/kegiatan-4.webp" alt="">
                 </section>
 
                 <section class="kegiatan relative top-[-8vh] max-md:top-0">
-                    <img src="../../assets/img/background/bg-1.jpg" alt="">
+                    <img src="../../assets/img/background/kegiatan-2.webp" alt="">
                 </section>
 
-                <section class="kegiatan content-center">
-                    <img src="../../assets/img/background/bg-3.jpg" alt="">
+                <section class="kegiatan max-md:content-center">
+                    <img src="../../assets/img/background/kegiatan-3.webp" alt="">
                 </section>
             </section>
             
             <section class="kategori-umkm flex justify-around items-start max-md:pt-[7%] max-md:justify-evenly text-center text-secondary-2">
-                <figure class="kategori">
-                    <img src="../../assets/img/background/bg-2.jpg" alt="">
-                    <figcaption>kerajinan</figcaption>
-                </figure>
+                <a href="../../all-card-umkm/kerajinan/card-kerajinan.html" class="kategori">
+                    <img src="../../assets/img/usaha-umkm/kerajinan/Daun-Rumbia.jpeg" alt="">
+                    <p>kerajinan</p>
+                </a>
 
-                <figure class="kategori">
-                    <img src="../../assets/img/background/bg-1.jpg" alt="">
-                    <figcaption>makanan</figcaption>
-                </figure>
+                <a href="../../all-card-umkm/makanan/card-makanan.html" class="kategori">
+                    <img src="../../assets/img/usaha-umkm/makanan/kedai-novi.jpeg" alt="">
+                    <p>makanan</p>
+                </a>
 
-                <figure class="kategori">
-                    <img src="../../assets/img/background/bg-4.jpg" alt="">
-                    <figcaption>sembako</figcaption>
-                </figure>
+                <a href="../../all-card-umkm/sembako/card-sembako.html" class="kategori">
+                    <img src="../../assets/img/usaha-umkm/sembako/kedai-nabila.jpeg" alt="">
+                    <p>sembako</p>
+                </a>
             </section>
         </section>
 

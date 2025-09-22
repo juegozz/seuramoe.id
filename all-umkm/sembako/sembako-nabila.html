@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/img/logo/seuramoe-bg-none.png" type="image/x-icon">
+    <link href="../../src/output.css" rel="stylesheet">
+    <title class="capitalize">warung putri nabila</title>
+    <style>
+        .img-usaha img {
+            width: 45vw;
+            height: 50vh;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+        .hero-section :is(.img-usaha, .description, .maps) {
+            padding: 5% 0;
+        }
+
+        .hero-section .information {
+            display: grid;
+            grid-template-areas: 'logo contact'
+                                 'name name';
+            grid-template-columns: 1fr 18vh;
+        }
+
+        .hero-section .information section {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-section .information .logo {
+            grid-area: logo;
+        }
+
+        .hero-section .information .name-logo {
+            grid-area: name;
+        }
+
+        .hero-section .information .contact {
+            grid-area: contact;
+        }
+        
+        .hero-section .information .contact a {
+            transition: .4s ease-in-out;
+        }
+
+        .hero-section .information .contact a:hover {
+            color: #4a2c2a;
+            background-color: #fffdd0;
+            border-radius: 3px;
+        }
+
+        .hero-section .information section img {
+            width: 20vw;
+            height: 14vh;
+            object-fit: cover;
+        }
+
+        .hero-section .maps a figure iframe {
+            width: 36vw;
+            height: 35vh;
+            border-radius: 10px;
+        }
+
+        
+        /* product */
+        .table-product table :where(th, td) {
+            border: 2px solid black;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .table-product table td.deskripsi {
+            text-align: justify;
+        }
+
+        .table-product table tbody tr td img {
+            width: 10vw;
+            height: 10vh;
+            margin: auto;
+        }
+
+        @media screen and (max-width: 48rem) {
+            .img-usaha img {
+                width: 90vw;
+                height: 40vh;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+
+            .hero-section .information {
+                display: grid;
+                grid-template-areas: 'logo name'
+                                    'contact contact';
+                grid-template-columns: 38vw 35vw;
+            }
+
+            .hero-section .information .logo img {
+                width: 35vw;
+                height: 9vh;
+                object-fit: cover;
+            }
+
+            .hero-section .information .contact a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .hero-section .information .contact a:hover {
+                border-radius: 0;
+            }
+
+            .hero-section .maps a figure iframe {
+                width: 80vw;
+                height: 35vh;
+                border-radius: 10px;
+            }
+            .hero-section :is(.description, .maps) {
+                padding: 8% 0;
+            }
+
+            .hero-section .img-usaha {
+                padding: 8% 0 2%;
+            }
+            .table-product table :where(th, td) {
+                padding: 1%;
+            }
+            .table-product table td.deskripsi {
+                text-align: center;
+            }
+            .table-product table thead tr th {
+                font-size: 10px;
+            }
+            .table-product table tbody tr td img {
+                width: 90%;
+                height: 50%;
+            }
+
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <header></header>
+    <main class="min-h-screen">
+        <section class="hero-section grid grid-cols-2 max-md:grid-cols-1 bg-test place-items-center min-w-screen">
+            <section class="img-usaha">
+                <img src="../../assets/img/usaha-umkm/sembako/kedai-nabila.jpeg" alt="" class="max-md:pt-[4vh]">
+            </section>
+
+            <section class="description text-secondary text-justify w-[68ch] max-md:w-[33ch] mr-[5%] max-md:mr-[0%]">
+                <h1 class="capitalize text-2xl mb-[.3rem] max-md:text-lg">warung putri nabila</h1>
+                <p class="max-md:text-sm">usaha kecil masyarakat yang menyediakan berbagai kebutuhan sehari-hari dengan harga terjangkau. Menjual aneka jajanan, minuman, serta barang kebutuhan rumah tangga yang praktis untuk dibeli oleh warga sekitar. Dengan lokasi yang mudah dijangkau di pinggir jalan, warung ini menjadi pilihan cepat bagi pembeli yang ingin berbelanja harian tanpa harus jauh ke pasar atau toko besar.</p>
+            </section>
+
+            <section class="information border-2 border-black rounded-2xl bg-secondary-2 w-[30vw] h-[28vh] overflow-hidden max-md:w-[70vw] max-md:h-[18vh]">
+
+                <section class="logo p-2">
+                    <img src="../../assets/img/usaha-umkm/sembako/kedai-nabila.jpeg" alt="" class="rounded-lg">
+                </section>
+
+                <section class="name-logo pb-2 max-md:pr-4 text-center">
+                    <p class="capitalize text-3xl max-md:text-base text-dominant text-shadow-lg/80 text-shadow-black/15">warung putri nabila</p>
+                </section>
+
+                <section class="contact text-sm flex justify-center items-center">
+                    <a href="https://wa.me/6282316344260" class="border-2 border-black p-1.5 rounded-lg bg-dominant text-secondary max-md:w-[100%] max-md:h-[100%] max-md:rounded-none max-md:p-0 max-md:border-none text-center max-md:text-lg max-md:bg-dominant">Contact Me</a>
+                </section>
+
+            </section>
+
+            <section class="maps">
+                <a href="https://maps.app.goo.gl/vm62EQb91cdoe3By5">
+                    <figure class="flex justify-center items-center flex-col">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3025.76482429359!2d95.88923799999999!3d5.373266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNcKwMjInMjMuOCJOIDk1wrA1MycyMS4zIkU!5e1!3m2!1sid!2sid!4v1758550305716!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <figcaption class="text-secondary text-center capitalize w-[50ch] max-md:w-[40ch]">jl. banda aceh - medan Gintong, Kec. Grong-grong, Kabupaten Pidie, Aceh</figcaption>
+                    </figure>
+                </a>
+            </section>
+        </section>
+
+        <!-- product -->
+        <section class="table-product w-screen bg-secondary min-h-screen flex justify-center items-start pt-[3%]">
+            <table class="border-collapse w-[90%] max-md:text-sm">
+                <thead>
+                    <tr>
+                        <th>gambar</th>
+                        <th>nama produk</th>
+                        <th>harga produk</th>
+                        <th>deskripsi produk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </section>
+
+        <aside class="absolute right-[3%] top-[4%] max-md:top-[2%] bg-secondary w-[8rem] h-[2rem] rounded-2xl flex justify-center items-center">
+            <section class="back">
+                <a href="../../all-card-umkm/sembako/card-sembako.html" class="px-[2.2rem] py-[.2rem]">kembali</a>
+            </section>
+        </aside>
+    </main>
+    <script>
+        async function tableProduct() {
+        try {
+            const response = await fetch('../../data-umkm/table-data-daun-rumbia.json')
+            if (!response.ok) throw new Error(`Gagal mengambil data: ${response.statusText}`)
+            
+            const result = await response.json()
+            if (!Array.isArray(result)) throw new Error('Data JSON bukan array')
+
+            const containerProduct = document.querySelector('tbody')
+
+            containerProduct.innerHTML = ''
+            result.forEach((produk) => {
+            const element = document.createElement('tr')
+            element.innerHTML = `
+                        <td><img src="${produk.img}" alt=""></td>
+                        <td>${produk.name}</td>
+                        <td>${produk.price}</td>
+                        <td class="deskripsi">${produk.description}</td>`
+            containerProduct.appendChild(element)
+            })
+
+
+        } catch (error) {
+            console.error('Error:', error)
+            const containerUmkm = document.querySelector('.all-umkm')
+            if (containerUmkm) {
+            containerUmkm.innerHTML = '<p>Terjadi kesalahan saat memuat data UMKM.</p>'
+            }
+        }
+        }
+
+        document.addEventListener('DOMContentLoaded', tableProduct())
+    </script>
+</body>
+</html>

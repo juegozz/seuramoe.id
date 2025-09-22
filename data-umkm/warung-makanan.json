@@ -1,0 +1,14 @@
+[
+    {
+        "background" : "../../assets/img/usaha-umkm/makanan/kedai-novi.jpeg",
+        "title" : "warung kopi novi",
+        "alamat" : "Jl. Banda Aceh – Medan, Kecamatan Simpang Tiga, Kabupaten Pidie, Aceh.",
+        "link" : "../../all-umkm/makanan/warung-novi.html"
+    },
+    {
+        "background" : "../../assets/img/usaha-umkm/makanan/kedai-Juraeni.jpeg",
+        "title" : "warung Juraeni",
+        "alamat" : "Jl. Banda Aceh – Medan, Kecamatan Simpang Tiga, Kabupaten Pidie, Aceh.",
+        "link" : "../../all-umkm/makanan/warung-juraeni.html"
+    }
+]

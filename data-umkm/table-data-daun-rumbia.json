@@ -1,0 +1,15 @@
+[
+    {
+        "img": "../../assets/img/product/kerajinan/daun-rumbia-perikat.jpeg",
+        "name": "Daun rumbia",
+        "price": "25 ribu per-ikat",
+        "description": "Daun rumbia alami yang sudah dipotong dan diikat rapi, siap digunakan untuk berbagai kebutuhan tradisional maupun bangunan ramah lingkungan. Cocok untuk bahan pembuatan atap rumbia, dinding, hiasan alami, maupun kerajinan tangan."
+    }, 
+    {
+        "img": "../../assets/img/product/kerajinan/daun-rumbia-peratap.jpg",
+        "name": "Atap Daun rumbia",
+        "price": "5 ribu per-atap",
+        "description": "Atap tradisional dari daun rumbia yang sudah dianyam dan disusun rapi, siap dipasang untuk berbagai kebutuhan bangunan alami. Cocok digunakan pada gazebo, gubuk, pondok, rumah tradisional, maupun dekorasi bernuansa alami dan tropis."
+    }
+
+]

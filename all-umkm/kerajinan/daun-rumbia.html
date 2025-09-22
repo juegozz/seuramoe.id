@@ -13,20 +13,50 @@
             border-radius: 12px;
             object-fit: cover;
         }
-        .hero-section :is(.img-usaha, .description, .information, .maps) {
+        .hero-section :is(.img-usaha, .description, .maps) {
             padding: 5% 0;
         }
 
-        .hero-section .information figure {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
+        .hero-section .information {
+            display: grid;
+            grid-template-areas: 'logo contact'
+                                 'name name';
+            grid-template-columns: 1fr 18vh;
         }
 
-        .hero-section .information figure img {
-            width: 2.5rem;
-            height: 3rem;
+        .hero-section .information section {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-section .information .logo {
+            grid-area: logo;
+        }
+
+        .hero-section .information .name-logo {
+            grid-area: name;
+        }
+
+        .hero-section .information .contact {
+            grid-area: contact;
+        }
+        
+        .hero-section .information .contact a {
+            transition: .4s ease-in-out;
+        }
+
+        .hero-section .information .contact a:hover {
+            color: #4a2c2a;
+            background-color: #fffdd0;
+            border-radius: 3px;
+        }
+
+        .hero-section .information section img {
+            width: 20vw;
+            height: 14vh;
+            object-fit: cover;
         }
 
         .hero-section .maps a figure iframe {
@@ -41,6 +71,10 @@
             border: 2px solid black;
             padding: 1rem;
             text-align: center;
+        }
+        
+        .table-product table td.deskripsi {
+            text-align: justify;
         }
 
         .table-product table tbody tr td img {
@@ -57,23 +91,53 @@
                 object-fit: cover;
             }
 
+            .hero-section .information {
+                display: grid;
+                grid-template-areas: 'logo name'
+                                    'contact contact';
+                grid-template-columns: 38vw 35vw;
+            }
+
+            .hero-section .information .logo img {
+                width: 35vw;
+                height: 9vh;
+                object-fit: cover;
+            }
+
+            .hero-section .information .contact a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .hero-section .information .contact a:hover {
+                border-radius: 0;
+            }
+
             .hero-section .maps a figure iframe {
                 width: 80vw;
                 height: 35vh;
                 border-radius: 10px;
             }
-            .hero-section :is(.img-usaha, .description, .information, .maps) {
+            .hero-section :is(.description, .maps) {
                 padding: 8% 0;
+            }
+
+            .hero-section .img-usaha {
+                padding: 8% 0 2%;
             }
             .table-product table :where(th, td) {
                 padding: 1%;
+            }
+            .table-product table td.deskripsi {
+                text-align: center;
             }
             .table-product table thead tr th {
                 font-size: 10px;
             }
             .table-product table tbody tr td img {
-                width: 80%;
-                height: 30%;
+                width: 90%;
+                height: 50%;
             }
 
         }
@@ -84,7 +148,7 @@
     <main class="min-h-screen">
         <section class="hero-section grid grid-cols-2 max-md:grid-cols-1 bg-test place-items-center min-w-screen">
             <section class="img-usaha">
-                <img src="../../assets/img/usaha-umkm/kerajinan/Daun-Rumbia.jpeg" alt="">
+                <img src="../../assets/img/usaha-umkm/kerajinan/Daun-Rumbia.jpeg" alt="" class="max-md:pt-[4vh]">
             </section>
 
             <section class="description text-secondary text-justify w-[68ch] max-md:w-[33ch] mr-[5%] max-md:mr-[0%]">
@@ -92,15 +156,20 @@
                 <p class="max-md:text-sm">Usaha jualan atap daun adalah bisnis yang berfokus pada produksi dan penjualan atap berbahan dasar daun alami, seperti daun rumbia, nipah, atau ijuk, yang sering digunakan untuk rumah tradisional, gazebo, atau bangunan bergaya alami. Usaha ini biasanya memanfaatkan bahan lokal yang ramah lingkungan, dengan proses pembuatan meliputi pemilihan daun, pengeringan, dan penenunan manual atau semi-manual. Keunggulannya meliputi harga terjangkau, estetika tradisional, dan daya tahan terhadap cuaca jika diproses dengan baik. Pasar utamanya adalah pemilik rumah adat, pengusaha restoran bertema, atau proyek eco-friendly. Tantangannya adalah ketahanan terbatas (biasanya 5-10 tahun) dan persaingan dengan material modern seperti seng atau genteng</p>
             </section>
 
-            <section class="information border-2 border-black rounded-2xl bg-secondary-2 w-[60%] flex justify-around">
-                <figure class="contact">
-                    <img src="../../assets/icons/smartphone.svg" alt="">
-                    <figcaption class="capitalize text-center max-md:text-xs">nomor telepon pemilik <br> <a href="https://wa.me/6285159255371">085159255371</a> </figcaption>
-                </figure>
-                <figure class="name-umkm">
-                    <img src="../../assets/icons/leaf.svg" alt="">
-                    <figcaption class="capitalize text-center max-md:text-xs">atap daun Bu sekdes</figcaption>
-                </figure>
+            <section class="information border-2 border-black rounded-2xl bg-secondary-2 w-[30vw] h-[28vh] overflow-hidden max-md:w-[70vw] max-md:h-[18vh]">
+
+                <section class="logo p-2">
+                    <img src="../../assets/img/usaha-umkm/kerajinan/Daun-Rumbia.jpeg" alt="" class="rounded-lg">
+                </section>
+
+                <section class="name-logo pb-2 max-md:pr-4 text-center">
+                    <p class="capitalize text-3xl max-md:text-base text-dominant text-shadow-lg/80 text-shadow-black/15">daun rumbia bahul</p>
+                </section>
+
+                <section class="contact text-sm flex justify-center items-center">
+                    <a href="https://wa.me/6285159255371" class="border-2 border-black p-1.5 rounded-lg bg-dominant text-secondary max-md:w-[100%] max-md:h-[100%] max-md:rounded-none max-md:p-0 max-md:border-none text-center max-md:text-lg max-md:bg-dominant">Contact Me</a>
+                </section>
+
             </section>
 
             <section class="maps">
@@ -130,7 +199,7 @@
             </table>
         </section>
 
-        <aside class="absolute right-[3%] top-[4%] bg-secondary w-[8rem] h-[2rem] rounded-2xl flex justify-center items-center">
+        <aside class="absolute right-[3%] top-[4%] max-md:top-[2%] bg-secondary w-[8rem] h-[2rem] rounded-2xl flex justify-center items-center">
             <section class="back">
                 <a href="../../all-card-umkm/kerajinan/card-kerajinan.html" class="px-[2.2rem] py-[.2rem]">kembali</a>
             </section>
@@ -139,7 +208,7 @@
     <script>
         async function tableProduct() {
         try {
-            const response = await fetch('../../data-umkm/table-data.json')
+            const response = await fetch('../../data-umkm/table-data-daun-rumbia.json')
             if (!response.ok) throw new Error(`Gagal mengambil data: ${response.statusText}`)
             
             const result = await response.json()
@@ -154,7 +223,7 @@
                         <td><img src="${produk.img}" alt=""></td>
                         <td>${produk.name}</td>
                         <td>${produk.price}</td>
-                        <td>${produk.description}</td>`
+                        <td class="deskripsi">${produk.description}</td>`
             containerProduct.appendChild(element)
             })
 

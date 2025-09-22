@@ -137,13 +137,13 @@
             height: .5rem;
         }
 
-        main #berita .berita {
+        main #berita .beritas {
             border: 5px solid #fffdd0;
             background-color: rgba(255, 255, 255, 0.52);
             padding: 2rem 0;
         }
 
-        main #berita .berita .img-information img {
+        main #berita .beritas .img-information img {
             width: 35vw;
             height: 30vh;
             box-shadow: 12px 10px 4px grey;
@@ -151,7 +151,7 @@
             border-radius: 5px;
         }
 
-        main #berita .berita .main-img {
+        main #berita .beritas .main-img {
             line-height: 18px;
             text-align: justify;
             width: 60ch;
@@ -168,6 +168,11 @@
             .hamburger-menu {
                 display: block !important;
                 position: relative;
+            }
+
+            .sidebar .logo {
+                display: flex;
+                justify-content: center;
             }
             
             :where(.logo, nav) {
@@ -192,11 +197,17 @@
             }
 
             main .hero-section .icon .svg-icon {
-                left: 47.2vw;
-                bottom: 6.7vh;
+                left: 46vw;
+                bottom: 10.2vh;
             }
 
-            main #berita .berita .img-information img {
+            main #berita .beritas {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            main #berita .beritas .img-information img {
                 width: 60vw;
                 height: 15vh;
             }
@@ -209,7 +220,7 @@
                                  'berita4';
             }
 
-            main #berita .berita .main-img {
+            main #berita .beritas .main-img {
             line-height: 18px;
             text-align: justify;
             width: 35ch;
@@ -288,7 +299,7 @@
 
     <main class="">
         <!-- hero section -->
-        <section id="home" class="hero-section text-center relative min-h-[37rem] grid grid-rows-2 bg-[url(../assets/img/background/feed-i.png)] bg-cover bg-center max-md:min-h-[15rem] max-md:bg-position-[center_top_35%]">
+        <section id="home" class="hero-section text-center relative min-h-[100vh] grid grid-rows-2 bg-[url(../assets/img/background/feed-i.png)] bg-cover bg-center max-md:min-h-[32vh] max-md:bg-position-[center_top_35%]">
 
             <!-- tagline -->
             <section class="tagline text-2xl text-secondary text-shadow-lg/95 text-shadow-dominant font-serif grid place-content-center content-end pb-10 max-md:text-sm max-md:pb-5">
@@ -299,34 +310,34 @@
             <section class="icon relative before:animate-rotate360 flex justify-center items-start pt-14 max-md:pt-0">
                 <section class="all-icon w-[4vw] z-30 flex justify-center items-start">
                     <section class="svg-icon leaf opacity-[0]" data-show="leaf">
-                        <img src="assets/icons/leaf.svg" alt="" class="w-[4vw] h-[9vh] max-md:w-[5.5vw] max-md:h-[10vh]">
+                        <img src="assets/icons/leaf.svg" alt="" class="w-[4vw] h-[9vh] max-md:w-[8vw] max-md:h-[3vh]">
                     </section>
                     <section class="svg-icon utensils opacity-[0]" data-show="utensils">
-                        <img src="assets/icons/utensils-crossed.svg" alt="" class="w-[4vw] h-[9vh] max-md:w-[5.5vw] max-md:h-[10vh]">
+                        <img src="assets/icons/utensils-crossed.svg" alt="" class="w-[4vw] h-[9vh] max-md:w-[8vw] max-md:h-[3vh]">
                     </section>
                     <section class="svg-icon shopp opacity-[0]" data-show="shopp">
-                        <img src="assets/icons/shopping-cart.svg" alt="" class="w-[4vw] h-[9vh] max-md:w-[5.5vw] max-md:h-[10vh]">
+                        <img src="assets/icons/shopping-cart.svg" alt="" class="w-[4vw] h-[9vh] max-md:w-[8vw] max-md:h-[3vh]">
                     </section>
                 </section>
             </section>
 
             <section class="img-umkm w-screen relative min-h-max">
                 <section class="kerajinan bottom-[32vh] left-[55vw] max-md:bottom-[10vh] max-md:left-[58vw]" data-category="leaf">
-                    <a href="./all-card-umkm/kerajinan/card-kerajinan.html">
-                        <img src="assets/img/usaha-umkm/kerajinan/umkm-12.jpg" alt="" class="transition-all duration-500 translate-x-[-7.8rem] scale-0 ">
+                    <a href="./all-card-umkm/kerajinan/card-kerajinan.html" class="invisible">
+                        <img src="assets/img/usaha-umkm/kerajinan/Daun-Rumbia.jpeg" alt="" class="transition-all duration-500 translate-x-[-7.8rem] scale-0">
                     </a>
                 </section>
 
                 <section class="makanan bottom-[32vh] left-[38vw] max-md:bottom-[10vh] max-md:left-[30vw]" data-category="utensils">
-                    <a href="./all-card-umkm/makanan/card-makanan.html">
-                        <img src="assets/img/usaha-umkm/makanan/umkm-1.jpg" alt="" class="transition-all duration-500 translate-x-[7.8rem] scale-0">
+                    <a href="./all-card-umkm/makanan/card-makanan.html" class="invisible">
+                        <img src="assets/img/usaha-umkm/makanan/kedai-novi.jpeg" alt="" class="transition-all duration-500 translate-x-[7.8rem] scale-0">
                     </a>
                 </section>
 
 
                 <section class="sembako bottom-[16vh] left-[46.5vw] max-md:bottom-[4vh] max-md:left-[44vw]" data-category="handbag">
-                    <a href="./all-card-umkm/sembako/card-sembako.html">
-                        <img src="assets/img/usaha-umkm/aksesoris/umkm-5.jpg" alt="" class="transition-all duration-500 translate-y-[-5.8rem] scale-0">
+                    <a href="./all-card-umkm/sembako/card-sembako.html" class="invisible">
+                        <img src="assets/img/usaha-umkm/sembako/kedai-nabila.jpeg" alt="" class="transition-all duration-500 translate-y-[-5.8rem] scale-0">
                     </a>
                 </section>
 
@@ -340,7 +351,7 @@
                 <h1>berita</h1>
             </section>
 
-            <section class="berita">
+            <section class="beritas max-md:min-w-screen">
                 <section class="img-information place-self-center">
                     <img src="assets/img/usaha-umkm/kerajinan/Daun-Rumbia.jpeg" alt="Daun rumbia">
                 </section>
@@ -349,31 +360,31 @@
                     <p class="max-md:text-xs">Dengan terampil, Ibu Nuraini mengubah daun rumbia menjadi atap yang kuat dan estetik. Karyanya tidak hanya menunjukkan keahliannya, tetapi juga menjadi contoh bagaimana kearifan lokal dapat menjadi sumber penghasilan yang berkelanjutan.</p>
                 </section>
             </section>
-            <section class="berita">
+            <section class="beritas">
                 <section class="img-information place-self-center">
-                    <img src="assets/img/usaha-umkm/makanan/kedai-jajan-2.jpeg" alt="">
+                    <img src="assets/img/usaha-umkm/makanan/kedai-novi-2.jpeg" alt="">
                 </section>
                 <section class="main-img place-self-center">
                     <h2 class="text-lg font-bold mb-3 text-center max-md:text-sm">Warung UMKM dengan Sajian Nikmat</h2>
                     <p class="max-md:text-xs">Kisah Warung Ibu Novi adalah bukti nyata bahwa usaha kecil dapat berkembang dan memberikan dampak positif. Kelezatan minuman dan keramahan pemiliknya menjadi resep sukses yang menginspirasi.</p>
                 </section>
             </section>
-            <section class="berita">
+            <section class="beritas">
                 <section class="img-information place-self-center">
-                    <img src="assets/img/background/bg-1.jpg" alt="">
+                    <img src="assets/img/usaha-umkm/sembako/kedai-nabila.jpeg" alt="">
                 </section>
                 <section class="main-img place-self-center">
-                    <h2 class="text-lg font-bold mb-3 text-center max-md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing</h2>
-                    <p class="max-md:text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime laboriosam dolor debitis minima, suscipit nemo commodi hic, similique exercitationem culpa quos perspiciatis, eum tenetur ipsum harum obcaecati pariatur nihil</p>
+                    <h2 class="text-lg font-bold mb-3 text-center max-md:text-sm">Warung Putri Nabila, UMKM Kecil Penopang Kebutuhan Dusun Teungoh</h2>
+                    <p class="max-md:text-xs">Warung Putri Nabila menyediakan berbagai kebutuhan pokok mulai dari beras, minyak goreng, gula, mie instan, hingga jajanan anak-anak. Meski berukuran kecil, Warung Putri Nabila menjadi tumpuan bagi warga sekitar untuk berbelanja tanpa harus jauh-jauh ke pasar besar. Selain sembako, Warung Putri Nabila juga menjual jajanan ringan dan minuman kemasan, sehingga menjadi tempat singgah yang praktis bagi anak-anak sekolah maupun warga yang lewat</p>
                 </section>
             </section>
-            <section class="berita">
+            <section class="beritas">
                 <section class="img-information place-self-center">
-                    <img src="assets/img/background/bg-4.jpg" alt="">
+                    <img src="assets/img/usaha-umkm/makanan/kedai-Juraeni.jpeg" alt="">
                 </section>
                 <section class="main-img place-self-center">
-                    <h2 class="text-lg font-bold mb-3 text-center max-md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing</h2>
-                    <p class="max-md:text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime laboriosam dolor debitis minima, suscipit nemo commodi hic, similique exercitationem culpa quos perspiciatis, eum tenetur ipsum harum obcaecati pariatur nihil</p>
+                    <h2 class="text-lg font-bold mb-3 text-center max-md:text-sm">Warung Bu Juraeni, UMKM Sederhana dengan Aneka Jajanan Harian</h2>
+                    <p class="max-md:text-xs">Di Warung Bu Juraeni tersedia beragam pilihan seperti mie, aneka kue tradisional, hingga kerupuk yang disajikan dengan harga terjangkau. Kehadiran warung ini memudahkan warga memperoleh makanan ringan dan kebutuhan cepat tanpa harus jauh ke pasar. Bu Juraeni menuturkan bahwa usaha ini dijalankan untuk membantu perekonomian keluarga sekaligus memberikan kemudahan bagi tetangga dan masyarakat sekitar.</p>
                 </section>
             </section>
         </section>

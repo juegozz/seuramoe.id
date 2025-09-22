@@ -1,0 +1,14 @@
+[
+    {
+        "background" : "../../assets/img/usaha-umkm/sembako/kedai-nabila.jpeg",
+        "title" : "warung putri nabila",
+        "alamat" : "Jl. Banda Aceh – Medan, Sebelah Gapura Gampong Gintong",
+        "link" : "../../all-umkm/sembako/sembako-nabila.html"
+    },
+    {
+        "background" : "../../assets/img/usaha-umkm/sembako/kedai-miliani.jpeg",
+        "title" : "warung ibu miliani",
+        "alamat" : "Jl. Banda Aceh – Medan, Kecamatan Simpang Tiga, Kabupaten Pidie, Aceh.",
+        "link" : "../../all-umkm/sembako/sembako-miliani.html"
+    }
+]
