@@ -1,12 +1,30 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("../assets/fonts/Montserrat/Montserrat-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter/Inter-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-dominant: #4a2c2a;
   --color-secondary: #fffdd0;
   --color-secondary-2: #f5f5dc;
   --color-test: #8a9a5b;
 
-  /* colors icon */
+  /* font */
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-inter: "Inter", sans-serif;
 
   /* animate icon */
   --animate-rotate360: rotate360 5s linear infinite;

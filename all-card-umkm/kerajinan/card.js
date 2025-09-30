@@ -17,13 +17,13 @@ async function umkmAtapDaun() {
       element.style.backgroundSize = 'cover'
       element.innerHTML = `
         <section class="descp">
-          <h2 class="capitalize">${umkm.title}</h2>
+          <h2 class="capitalize font-montserrat">${umkm.title}</h2>
           <section class="location">
             <img src="../../assets/icons/map-pin.svg" alt="Lokasi">
-            <p class="alamat">${umkm.alamat}</p>
+            <p class="alamat font-inter">${umkm.alamat}</p>
           </section>
           <a href="${umkm.link}">
-            <section class="button">show</section>
+            <section class="button font-inter">show</section>
           </a>
         </section>`
       containerUmkm.appendChild(element)

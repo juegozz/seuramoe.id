@@ -8,7 +8,6 @@
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-amber-300: oklch(87.9% 0.169 91.605);
     --color-black: #000;
     --spacing: 0.25rem;
     --text-xs: 0.75rem;
@@ -19,16 +18,12 @@
     --text-base--line-height: calc(1.5 / 1);
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
-    --text-xl: 1.25rem;
-    --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
-    --text-7xl: 4.5rem;
-    --text-7xl--line-height: 1;
     --font-weight-bold: 700;
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
@@ -44,6 +39,8 @@
     --color-secondary: #fffdd0;
     --color-secondary-2: #f5f5dc;
     --color-test: #8a9a5b;
+    --font-montserrat: "Montserrat", sans-serif;
+    --font-inter: "Inter", sans-serif;
     --animate-rotate360: rotate360 5s linear infinite;
   }
 }
@@ -349,6 +346,9 @@
   .h-\[20\%\] {
     height: 20%;
   }
+  .h-\[20vh\] {
+    height: 20vh;
+  }
   .h-\[21\%\] {
     height: 21%;
   }
@@ -357,6 +357,9 @@
   }
   .h-\[30vh\] {
     height: 30vh;
+  }
+  .h-\[70\%\] {
+    height: 70%;
   }
   .h-\[100\%\] {
     height: 100%;
@@ -397,8 +400,8 @@
   .w-\[15\%\] {
     width: 15%;
   }
-  .w-\[25ch\] {
-    width: 25ch;
+  .w-\[28ch\] {
+    width: 28ch;
   }
   .w-\[30vw\] {
     width: 30vw;
@@ -418,9 +421,6 @@
   .w-\[50ch\] {
     width: 50ch;
   }
-  .w-\[60\%\] {
-    width: 60%;
-  }
   .w-\[65ch\] {
     width: 65ch;
   }
@@ -438,6 +438,9 @@
   }
   .w-\[90\%\] {
     width: 90%;
+  }
+  .w-\[95vw\] {
+    width: 95vw;
   }
   .w-\[100\%\] {
     width: 100%;
@@ -613,9 +616,6 @@
   .border-dominant {
     border-color: var(--color-dominant);
   }
-  .bg-amber-300 {
-    background-color: var(--color-amber-300);
-  }
   .bg-dominant {
     background-color: var(--color-dominant);
   }
@@ -640,8 +640,8 @@
   .bg-test {
     background-color: var(--color-test);
   }
-  .bg-\[url\(\.\.\/assets\/img\/background\/feed-i\.png\)\] {
-    background-image: url(../assets/img/background/feed-i.png);
+  .bg-\[url\(\.\.\/assets\/img\/background\/feed-i\.webp\)\] {
+    background-image: url(../assets/img/background/feed-i.webp);
   }
   .bg-cover {
     background-size: cover;
@@ -651,6 +651,12 @@
   }
   .bg-center {
     background-position: center;
+  }
+  .object-bottom {
+    object-position: bottom;
+  }
+  .object-center {
+    object-position: center;
   }
   .p-1 {
     padding: calc(var(--spacing) * 1);
@@ -718,6 +724,12 @@
   .indent-\[2em\] {
     text-indent: 2em;
   }
+  .font-inter {
+    font-family: var(--font-inter);
+  }
+  .font-montserrat {
+    font-family: var(--font-montserrat);
+  }
   .font-serif {
     font-family: var(--font-serif);
   }
@@ -741,9 +753,6 @@
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
   }
-  .text-\[10px\] {
-    font-size: 10px;
-  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
@@ -756,9 +765,6 @@
   }
   .text-secondary {
     color: var(--color-secondary);
-  }
-  .text-secondary-2 {
-    color: var(--color-secondary-2);
   }
   .capitalize {
     text-transform: capitalize;
@@ -920,6 +926,36 @@
       left: 58vw;
     }
   }
+  .max-md\:m-\[0\%\] {
+    @media (width < 48rem) {
+      margin: 0%;
+    }
+  }
+  .max-md\:m-\[1\%\] {
+    @media (width < 48rem) {
+      margin: 1%;
+    }
+  }
+  .max-md\:m-\[3\%\] {
+    @media (width < 48rem) {
+      margin: 3%;
+    }
+  }
+  .max-md\:m-\[4\%\] {
+    @media (width < 48rem) {
+      margin: 4%;
+    }
+  }
+  .max-md\:m-\[5\%\] {
+    @media (width < 48rem) {
+      margin: 5%;
+    }
+  }
+  .max-md\:m-\[7\%\] {
+    @media (width < 48rem) {
+      margin: 7%;
+    }
+  }
   .max-md\:mx-\[15\%\] {
     @media (width < 48rem) {
       margin-inline: 15%;
@@ -955,11 +991,6 @@
       display: none;
     }
   }
-  .max-md\:h-\[2vh\] {
-    @media (width < 48rem) {
-      height: 2vh;
-    }
-  }
   .max-md\:h-\[3\.5rem\] {
     @media (width < 48rem) {
       height: 3.5rem;
@@ -970,34 +1001,14 @@
       height: 3vh;
     }
   }
-  .max-md\:h-\[5vh\] {
-    @media (width < 48rem) {
-      height: 5vh;
-    }
-  }
   .max-md\:h-\[7\%\] {
     @media (width < 48rem) {
       height: 7%;
     }
   }
-  .max-md\:h-\[10vh\] {
-    @media (width < 48rem) {
-      height: 10vh;
-    }
-  }
   .max-md\:h-\[18vh\] {
     @media (width < 48rem) {
       height: 18vh;
-    }
-  }
-  .max-md\:h-\[20\%\] {
-    @media (width < 48rem) {
-      height: 20%;
-    }
-  }
-  .max-md\:h-\[20\] {
-    @media (width < 48rem) {
-      height: 20;
     }
   }
   .max-md\:h-\[25\%\] {
@@ -1030,24 +1041,9 @@
       width: 3.5rem;
     }
   }
-  .max-md\:w-\[5\.5vw\] {
-    @media (width < 48rem) {
-      width: 5.5vw;
-    }
-  }
   .max-md\:w-\[8vw\] {
     @media (width < 48rem) {
       width: 8vw;
-    }
-  }
-  .max-md\:w-\[10\.5vw\] {
-    @media (width < 48rem) {
-      width: 10.5vw;
-    }
-  }
-  .max-md\:w-\[15\.5vw\] {
-    @media (width < 48rem) {
-      width: 15.5vw;
     }
   }
   .max-md\:w-\[25\%\] {
@@ -1085,9 +1081,29 @@
       width: 80vw;
     }
   }
+  .max-md\:w-\[82\%\] {
+    @media (width < 48rem) {
+      width: 82%;
+    }
+  }
+  .max-md\:w-\[85\%\] {
+    @media (width < 48rem) {
+      width: 85%;
+    }
+  }
   .max-md\:w-\[90vw\] {
     @media (width < 48rem) {
       width: 90vw;
+    }
+  }
+  .max-md\:w-\[95\%\] {
+    @media (width < 48rem) {
+      width: 95%;
+    }
+  }
+  .max-md\:w-\[97\%\] {
+    @media (width < 48rem) {
+      width: 97%;
     }
   }
   .max-md\:w-\[98\%\] {
@@ -1196,6 +1212,41 @@
       background-position: center top 35%;
     }
   }
+  .max-md\:object-\[50\%_25\%\] {
+    @media (width < 48rem) {
+      object-position: 50% 25%;
+    }
+  }
+  .max-md\:object-\[50\%_70\%\] {
+    @media (width < 48rem) {
+      object-position: 50% 70%;
+    }
+  }
+  .max-md\:object-\[50\%_75\%\] {
+    @media (width < 48rem) {
+      object-position: 50% 75%;
+    }
+  }
+  .max-md\:object-\[50\%_80\%\] {
+    @media (width < 48rem) {
+      object-position: 50% 80%;
+    }
+  }
+  .max-md\:object-\[50\%_85\%\] {
+    @media (width < 48rem) {
+      object-position: 50% 85%;
+    }
+  }
+  .max-md\:object-\[50\%_90\%\] {
+    @media (width < 48rem) {
+      object-position: 50% 90%;
+    }
+  }
+  .max-md\:object-bottom {
+    @media (width < 48rem) {
+      object-position: bottom;
+    }
+  }
   .max-md\:p-0 {
     @media (width < 48rem) {
       padding: calc(var(--spacing) * 0);
@@ -1247,12 +1298,6 @@
       line-height: var(--tw-leading, var(--text-2xl--line-height));
     }
   }
-  .max-md\:text-3xl {
-    @media (width < 48rem) {
-      font-size: var(--text-3xl);
-      line-height: var(--tw-leading, var(--text-3xl--line-height));
-    }
-  }
   .max-md\:text-base {
     @media (width < 48rem) {
       font-size: var(--text-base);
@@ -1271,16 +1316,15 @@
       line-height: var(--tw-leading, var(--text-sm--line-height));
     }
   }
-  .max-md\:text-xl {
-    @media (width < 48rem) {
-      font-size: var(--text-xl);
-      line-height: var(--tw-leading, var(--text-xl--line-height));
-    }
-  }
   .max-md\:text-xs {
     @media (width < 48rem) {
       font-size: var(--text-xs);
       line-height: var(--tw-leading, var(--text-xs--line-height));
+    }
+  }
+  .max-md\:capitalize {
+    @media (width < 48rem) {
+      text-transform: capitalize;
     }
   }
   .max-md\:backdrop-blur-none {
@@ -1290,6 +1334,20 @@
       backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     }
   }
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../assets/fonts/Montserrat/Montserrat-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: bold;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter/Inter-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 @property --tw-translate-x {
   syntax: "*";

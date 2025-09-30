@@ -4,15 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/logo/seuramoe-bg-none.png" type="image/x-icon">
-    <title>Document</title>
     <link href="../../src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/animation/aos.css">
+    <title>Profil Desa</title>
     <style>
         * {
             scroll-behavior: smooth;
             box-sizing: border-box;
         }
+
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('../../assets/fonts/Montserrat/Montserrat-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            src: url('../../assets/fonts/Inter/Inter-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
         header {
             transition: 1s ease-in-out;
+        }
+
+        :where(header, .sidebar) {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
 
         .hamburger-menu {
@@ -22,7 +45,7 @@
         .sidebar {
             background-color: #fffdd0; /* bg-secondary/90 */
             transform: translateX(100%); /* Mulai di luar layar kanan */
-            transition: transform 0.4s ease; /* Animasi geser */
+            transition: transform 0.4s ease;
             padding: 1.5rem 4rem 0 ;
             z-index: 1000;
             display: flex;
@@ -82,6 +105,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
 
         main .profil .title::after {
@@ -104,9 +129,14 @@
 
         main .profil .paper-profil img {
             width: 75vw;
-            height: 12rem;
+            height: 30vh;
             object-fit: cover;
             margin: 0 auto;
+        }
+
+        main .profil .paper-profil .description {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
         }
 
         /* kependudukan */
@@ -123,17 +153,32 @@
             text-align: center;
         }
 
+        table th {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        table td {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
         /* galeri */
         .galeri {
             padding-bottom: 5%;
             margin: 0 auto;
         }
 
-        .galeri img {
+        .galeri :where(img, video) {
             border-radius: .4rem;
             width: 100%;
             height: auto;
             object-fit: cover;
+        }
+
+        .galeri video {
+            border-radius: .6rem;
+            height: 30vh;
         }
 
         @media screen and (max-width: 48rem) {
@@ -160,10 +205,13 @@
                 width: 2rem;
                 height: 2rem;
             }
-
+            main .profil .paper-profil img {
+                width: 77vw;
+                height: 30vh;
+            }
             .peta iframe {
-                width: 70vw;
-                height: 70vh;
+                width: 77vw;
+                height: 60vh;
             }
             #myChart {
                 width: 100%;
@@ -173,6 +221,14 @@
             table tr :is(th, td) {
                 padding: 3%;
                 font-size: 9px;
+            }
+            .galeri img {
+                width: 100%;
+                height: auto;
+            }
+            .galeri video {
+                padding: 0 2%;
+                width: 100vw;
             }
         }
     </style>
@@ -187,15 +243,15 @@
         <!-- navigation -->
         <nav>
             <ul class="flex gap-3 items-center min-h-full text-black">
-                <li><a href="../../index.html" class="">home</a></li>
+                <li><a href="../../index.html" class="">Home</a></li>
                 <li class="relative group">
                     <a href="" class="flex">
-                        about
+                        About
                     </a>
                     <ul class="sub-about absolute bg-secondary/90 backdrop-blur-xl w-[8rem] capitalize text-center rounded-xl invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all duration-[250ms]">
-                        <li><a href="#">profil desa</a></li>
-                        <li><a href="../visi-misi/visi-misi.html">visi - misi</a></li>
-                        <li><a href="../mahasiswa-kkn/mahasiswa-kkn.html">mahasiswa KKN</a></li>
+                        <li><a href="#">Profil Desa</a></li>
+                        <li><a href="../visi-misi/visi-misi.html">Visi - Misi</a></li>
+                        <li><a href="../mahasiswa-kkn/mahasiswa-kkn.html">Mahasiswa KKN</a></li>
                     </ul>
                 </li>
                 <li><a href="../../index.html#berita" class="">Berita</a></li>
@@ -238,16 +294,16 @@
     <main>
         <!-- profil -->
         <section class="profil min-w-screen min-h-min flex justify-center items-center">
-            <section class="paper-profil w-[90%] bg-test m-[10%] mb-[4%] rounded-[8px] overflow-hidden">
+            <section class="paper-profil w-[90%] max-md:w-[95%] bg-test m-[10%] max-md:m-[5%] mb-[4%] rounded-[8px] overflow-hidden">
                 <section class="title capitalize text-2xl mb-[5%]">
                     <h1>profil</h1>
                 </section>
 
-                <section class="img">
+                <section class="img" data-aos="flip-down">
                     <img src="../../assets/img/background/profil-desa.jpeg" alt="">
                 </section>
 
-                <section class="description w-[90%] m-auto my-[1rem] text-justify">
+                <section class="description w-[90%] max-md:w-[82%] m-auto my-[1rem] text-justify" data-aos="fade-up">
                     <p class="indent-[2em] mb-[.5em]">
                         Desa Gintong merupakan salah satu gampong tua di wilayah Kemukiman Beureuleung, Kecamatan Grong-Grong, Kabupaten Pidie. Berdasarkan cerita turun-temurun dari para tetua, Gintong sudah dihuni sejak masa Kerajaan Aceh Darussalam ketika wilayah Pidie menjadi salah satu pusat pertanian dan perdagangan penting.                        
                     </p>
@@ -270,12 +326,12 @@
 
         <!-- peta -->
         <section class="profil min-w-screen min-h-min flex justify-center items-center">
-            <section class="paper-profil w-[90%] bg-test m-[10%] mb-[4%] rounded-[8px] overflow-hidden">
+            <section class="paper-profil w-[90%] max-md:w-[95%] bg-test m-[10%] max-md:m-[5%] mb-[4%] rounded-[8px] overflow-hidden">
                 <section class="title capitalize text-2xl mb-[5%]">
                     <h1>peta</h1>
                 </section>
 
-                <section class="peta flex justify-center items-center pb-[3%]">
+                <section class="peta flex justify-center items-center pb-[3%]" data-aos="flip-down">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12102.990226531723!2d95.88150472375987!3d5.37674127708781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3040f2a59203f7df%3A0xaa33087a158875d2!2sGintong%2C%20Kec.%20Grong-grong%2C%20Kabupaten%20Pidie%2C%20Aceh!5e1!3m2!1sid!2sid!4v1757510863467!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </section>
             </section>
@@ -283,20 +339,20 @@
 
         <!-- kependudukan -->
         <section class="profil min-w-screen min-h-min flex justify-center items-center">
-            <section class="paper-profil w-[90%] bg-test m-[10%] mb-[4%] rounded-[8px] overflow-hidden">
+            <section class="paper-profil w-[90%] max-md:w-[95%] bg-test m-[10%] max-md:m-[5%] mb-[4%] rounded-[8px] overflow-hidden">
                 <section class="title capitalize text-2xl mb-[5%]">
                     <h1>kependudukan</h1>
                 </section>
 
-                <section class="peta flex justify-center items-center pb-[3%]">
+                <section class="peta flex justify-center items-center pb-[3%]" data-aos="flip-down">
                     <canvas id="myChart"></canvas>
                 </section>
 
                 <section class="table-container my-[5%] w-full flex justify-center items-center">
-                    <table class="w-[70vw] h-max max-md:w-[98%] max-md:h-[100%] text-center ">
+                    <table class="w-[70vw] h-max max-md:w-[98%] max-md:h-[100%] text-center">
                         <thead>
                             <tr>
-                                <th class="capitalize text-[10px]">nama dusun</th>
+                                <th class="capitalize">nama dusun</th>
                                 <td>laki-laki</td>
                                 <td>perempuan</td>
                                 <td>jumlah</td>
@@ -335,58 +391,43 @@
 
         <!-- galeri -->
         <section class="profil min-w-screen min-h-min flex justify-center items-center">
-            <section class="paper-profil w-[90%] min-h-[50vh] bg-test m-[10%] mb-[4%] rounded-[8px] overflow-y-auto">
+            <section class="paper-profil w-[90%] min-h-[50vh] max-md:w-[95%] bg-test m-[10%] max-md:m-[5%] mb-[4%] rounded-[8px] overflow-y-auto">
                 <section class="title capitalize text-2xl mb-[5%]">
                     <h1>galeri</h1>
                 </section>
 
-                <section class="galeri grid grid-cols-4 max-md:grid-cols-2 pb-[3%] gap-4 max-md:gap-2 max-md:gap-x-5 mx-auto w-[75vw] max-md:w-[80%] max-md:gap-y-4">
-                    <img src="../../assets/img/background/kegiatan-1.webp" alt="">
-                    <img src="../../assets/img/background/kegiatan-2.webp" alt="">
-                    <img src="../../assets/img/background/kegiatan-3.webp" alt="">
-                    <img src="../../assets/img/background/kegiatan-4.webp" alt="">
-
-                    <img src="../../assets/img/background/bg-1.jpg" alt="">
-                    <img src="../../assets/img/background/bg-2.jpg" alt="">
-                    <img src="../../assets/img/background/bg-3.jpg" alt="">
-                    <img src="../../assets/img/background/bg-5.jpg" alt="">
-
-                    <img src="../../assets/img/background/bg-1.jpg" alt="">
-                    <img src="../../assets/img/background/bg-2.jpg" alt="">
-                    <img src="../../assets/img/background/bg-3.jpg" alt="">
-                    <img src="../../assets/img/background/bg-5.jpg" alt="">
-
-                    <img src="../../assets/img/background/bg-1.jpg" alt="">
-                    <img src="../../assets/img/background/bg-2.jpg" alt="">
-                    <img src="../../assets/img/background/bg-3.jpg" alt="">
-                    <img src="../../assets/img/background/bg-5.jpg" alt="">
-
-                    <img src="../../assets/img/background/bg-1.jpg" alt="">
-                    <img src="../../assets/img/background/bg-2.jpg" alt="">
-                    <img src="../../assets/img/background/bg-3.jpg" alt="">
-                    <img src="../../assets/img/background/bg-5.jpg" alt="">
-
-                    <img src="../../assets/img/background/bg-1.jpg" alt="">
-                    <img src="../../assets/img/background/bg-2.jpg" alt="">
-                    <img src="../../assets/img/background/bg-3.jpg" alt="">
-                    <img src="../../assets/img/background/bg-4.jpg" alt="">
-
-                    <img src="../../assets/img/background/bg-1.jpg" alt="">
-                    <img src="../../assets/img/background/bg-2.jpg" alt="">
-                    <img src="../../assets/img/background/bg-3.jpg" alt="">
-                    <img src="../../assets/img/background/bg-4.jpg" alt="">
+                <section class="galeri grid grid-cols-4 max-md:grid-cols-1 pb-[3%] gap-4 max-md:gap-2 max-md:gap-x-5 mx-auto w-[75vw] max-md:w-[80vw] max-md:gap-y-4">
+                    <img src="../../assets/img/activity/aktivitas-1.webp" alt="" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-11.webp" alt="" class="max-md:object-[50%_85%]" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-14.webp" alt="" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-15.webp" alt="" data-aos="zoom-in">
                     
-                    <img src="../../assets/img/background/bg-1.jpg" alt="">
-                    <img src="../../assets/img/background/bg-2.jpg" alt="">
-                    <img src="../../assets/img/background/bg-3.jpg" alt="">
-                    <img src="../../assets/img/background/bg-4.jpg" alt="">
+                    <img src="../../assets/img/activity/aktivitas-3.webp" alt="" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-13.webp" alt="" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-4.webp" alt=""  class="max-md:object-[50%_25%]" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-5.webp" alt="" data-aos="zoom-in">
                     
-                    <img src="../../assets/img/background/bg-2.jpg" alt="">
-                    <img src="../../assets/img/background/bg-4.jpg" alt="">
+                    <img src="../../assets/img/activity/aktivitas-6.webp" alt="" class="max-md:object-[50%_75%]" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-10.webp" alt="" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-9.webp" alt="" data-aos="zoom-in">
+                    <video src="../../assets/img/activity/video-1.webm" controls loop data-aos="zoom-in"></video>
+                    <img src="../../assets/img/activity/aktivitas-8.webp" alt="" data-aos="zoom-in">
+
+                    <img src="../../assets/img/activity/aktivitas-7.webp" alt="" class="max-md:object-[50%_75%]" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-12.webp" alt="" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-2.webp" alt="" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-16.webp" alt="" data-aos="zoom-in">
+
+                    <video src="../../assets/img/activity/video-2.webm" controls loop data-aos="zoom-in" class="h-[20vh]"></video>
+                    <img src="../../assets/img/activity/aktivitas-11.webp" alt="" data-aos="zoom-in">
+                    <img src="../../assets/img/activity/aktivitas-14.webp" alt="" data-aos="zoom-in">
+                    
                 </section>
             </section>
         </section>
     </main>
+
+    <script src="../../assets/animation/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mediaQuery = window.matchMedia('(min-width: 1024px)');
@@ -485,6 +526,8 @@
             sublist.classList.add('opacity-0', 'invisible')
         })
     </script>
-
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>

@@ -2,31 +2,31 @@
     {
         "img": "../../assets/img/product/makanan/apem-banyumas.jpg",
         "name": "kue apem",
-        "price": "25 ribu per-ikat",
+        "price": "2 per-ribu",
         "description": "Daun rumbia alami yang sudah dipotong dan diikat rapi, siap digunakan untuk berbagai kebutuhan tradisional maupun bangunan ramah lingkungan. Cocok untuk bahan pembuatan atap rumbia, dinding, hiasan alami, maupun kerajinan tangan."
     }, 
     {
         "img": "../../assets/img/product/makanan/emping.jpg",
-        "name": "Atap Daun rumbia",
-        "price": "5 ribu per-atap",
+        "name": "kerupuk emping",
+        "price": "1kg per-90ribu",
         "description": "Atap tradisional dari daun rumbia yang sudah dianyam dan disusun rapi, siap dipasang untuk berbagai kebutuhan bangunan alami. Cocok digunakan pada gazebo, gubuk, pondok, rumah tradisional, maupun dekorasi bernuansa alami dan tropis."
     },
     {
         "img": "../../assets/img/product/makanan/mie-aceh.jpg",
-        "name": "Atap Daun rumbia",
-        "price": "5 ribu per-atap",
+        "name": "mie goreng/indomie",
+        "price": "10ribu per-piring",
         "description": "Atap tradisional dari daun rumbia yang sudah dianyam dan disusun rapi, siap dipasang untuk berbagai kebutuhan bangunan alami. Cocok digunakan pada gazebo, gubuk, pondok, rumah tradisional, maupun dekorasi bernuansa alami dan tropis."
     },
     {
         "img": "../../assets/img/product/makanan/timpan.jpg",
-        "name": "Atap Daun rumbia",
-        "price": "5 ribu per-atap",
+        "name": "timpan sarikaya",
+        "price": "4 per-5ribu",
         "description": "Atap tradisional dari daun rumbia yang sudah dianyam dan disusun rapi, siap dipasang untuk berbagai kebutuhan bangunan alami. Cocok digunakan pada gazebo, gubuk, pondok, rumah tradisional, maupun dekorasi bernuansa alami dan tropis."
     },
     {
         "img": "../../assets/img/product/makanan/kue-keukarah.jpg",
-        "name": "Atap Daun rumbia",
-        "price": "5 ribu per-atap",
+        "name": "kue keukarah",
+        "price": "6 per-5ribu",
         "description": "Atap tradisional dari daun rumbia yang sudah dianyam dan disusun rapi, siap dipasang untuk berbagai kebutuhan bangunan alami. Cocok digunakan pada gazebo, gubuk, pondok, rumah tradisional, maupun dekorasi bernuansa alami dan tropis."
     }
 ]

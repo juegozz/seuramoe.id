@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/logo/seuramoe-bg-none.png" type="image/x-icon">
     <link href="../../src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/animation/aos.css">
     <title class="capitalize">warung ibu novi</title>
     <style>
         .img-usaha img {
@@ -129,6 +130,9 @@
             .table-product table :where(th, td) {
                 padding: 1%;
             }
+            .table-product table :nth-child(n+2):nth-child(-n+3) {
+                padding: 10px;
+            }
             .table-product table td.deskripsi {
                 text-align: center;
             }
@@ -136,27 +140,26 @@
                 font-size: 10px;
             }
             .table-product table tbody tr td img {
-                width: 90%;
-                height: 50%;
+                width: 150vw;
+                height: 10vh;
             }
 
         }
     </style>
 </head>
 <body class="overflow-x-hidden">
-    <header></header>
     <main class="min-h-screen">
         <section class="hero-section grid grid-cols-2 max-md:grid-cols-1 bg-test place-items-center min-w-screen">
-            <section class="img-usaha">
+            <section class="img-usaha" data-aos="zoom-in">
                 <img src="../../assets/img/usaha-umkm/makanan/kedai-novi.jpeg" alt="" class="max-md:pt-[4vh]">
             </section>
 
-            <section class="description text-secondary text-justify w-[68ch] max-md:w-[33ch] mr-[5%] max-md:mr-[0%]">
+            <section class="description text-secondary text-justify w-[68ch] max-md:w-[33ch] mr-[5%] max-md:mr-[0%]" data-aos="fade-down">
                 <h1 class="capitalize text-2xl mb-[.3rem] max-md:text-lg">warung kopi novi</h1>
                 <p class="max-md:text-sm">Warung sederhana ini merupakan usaha kecil masyarakat yang melayani kebutuhan makan dan minum bagi warga sekitar maupun pengguna jalan. Dengan bangunan tradisional beratap seng dan nuansa alami di sekitarnya, warung ini menghadirkan suasana nyaman dan akrab.</p>
             </section>
 
-            <section class="information border-2 border-black rounded-2xl bg-secondary-2 w-[30vw] h-[28vh] overflow-hidden max-md:w-[70vw] max-md:h-[18vh]">
+            <section class="information border-2 border-black rounded-2xl bg-secondary-2 w-[30vw] h-[28vh] overflow-hidden max-md:w-[70vw] max-md:h-[18vh]" data-aos="fade-up">
 
                 <section class="logo p-2">
                     <img src="../../assets/img/usaha-umkm/makanan/kedai-novi-2.jpeg" alt="" class="rounded-lg">
@@ -205,6 +208,8 @@
             </section>
         </aside>
     </main>
+
+    <script src="../../assets/animation/aos.js"></script>
     <script>
         async function tableProduct() {
         try {
@@ -238,6 +243,9 @@
         }
 
         document.addEventListener('DOMContentLoaded', tableProduct())
+    </script>
+    <script>
+        AOS.init();
     </script>
 </body>
 </html>

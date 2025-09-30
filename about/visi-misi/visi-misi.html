@@ -5,14 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/logo/seuramoe-bg-none.png" type="image/x-icon">
     <link href="../../src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/animation/aos.css">
     <title>visi - misi</title>
     <style>
         * {
             scroll-behavior: smooth;
             box-sizing: border-box;
         }
+
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('../../assets/fonts/Montserrat/Montserrat-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            src: url('../../assets/fonts/Inter/Inter-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
         header {
             transition: 1s ease-in-out;
+        }
+
+        :where(header, .sidebar) {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
 
         .hamburger-menu {
@@ -81,6 +104,16 @@
         main .hero-section .information {
             grid-area: inf;
         }
+
+        main .hero-section .information h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;            
+        }
+        
+        main .hero-section .information p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;          
+        }
         
         main .hero-section .img-mahasiswa {
             grid-area: img;
@@ -96,7 +129,9 @@
         
         main .hero-section .kategori-umkm {
             grid-area: catec;
-            
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: capitalize;
         }
         main .hero-section .kategori-umkm a img {
             width: 7rem;
@@ -177,15 +212,15 @@
         <!-- navigation -->
         <nav>
             <ul class="flex gap-3 items-center min-h-full text-black">
-                <li><a href="../../index.html" class="">home</a></li>
+                <li><a href="../../index.html" class="">Home</a></li>
                 <li class="relative group">
                     <a href="#home" class="flex">
-                        about
+                        About
                     </a>
                     <ul class="sub-about absolute bg-secondary/90 backdrop-blur-xl w-[8rem] capitalize text-center invisible rounded-xl opacity-0 group-hover:opacity-100 group-hover:visible transition-all duration-[250ms] overflow-hidden">
-                        <li><a href="../profil-desa/profil-desa.html">profil desa</a></li>
-                        <li><a href="#">visi - misi</a></li>
-                        <li><a href="../mahasiswa-kkn/mahasiswa-kkn.html">mahasiswa KKN</a></li>
+                        <li><a href="../profil-desa/profil-desa.html">Profil Desa</a></li>
+                        <li><a href="#">Visi - Misi</a></li>
+                        <li><a href="../mahasiswa-kkn/mahasiswa-kkn.html">Mahasiswa KKN</a></li>
                     </ul>
                 </li>
                 <li><a href="../../index.html#berita" class="">Berita</a></li>
@@ -205,14 +240,14 @@
         <!-- navigation -->
         <nav class="">
             <ul class="flex gap-5 flex-col justify-center items-center min-h-full text-black">
-                <li><a href="../../index.html" class="capitalize">home</a></li>
+                <li><a href="../../index.html" class="capitalize">Home</a></li>
                 <li class="relative">
                     <a href="#" class="flex capitalize">
-                        about
+                        About
                     </a>
                     <ul class="sub-about absolute bg-secondary/90 backdrop-blur-xl w-[8rem] capitalize text-center rounded-xl invisible opacity-0 transition-all duration-[250ms]">
-                        <li><a href="../profil-desa/profil-desa.html" class="capitalize">profil desa</a></li>
-                        <li><a href="#" class="capitalize">visi - misi</a></li>
+                        <li><a href="../profil-desa/profil-desa.html" class="capitalize">Profil Desa</a></li>
+                        <li><a href="#" class="capitalize">Visi - Misi</a></li>
                         <li><a href="../mahasiswa-kkn/mahasiswa-kkn.html" class="capitalize">mahasiswa KKN</a></li>
                     </ul>
                 </li>
@@ -229,29 +264,29 @@
         <section class="hero-section min-h-screen grid grid-cols-2 max-md:grid-cols-1">
             
             <section class="information text-center content-center pt-[15%]">
-                <h1 class="text-lg text-secondary mb-[1rem] max-md:mx-[15%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Do</h1>
-                <p class="w-[65ch] mx-auto text-justify max-md:w-[35ch] text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus officiis ab dolor blanditiis, odit, maxime recusandae reiciendis exercitationem consequatur illum tempore dolorem adipisci omnis delectus perspiciatis provident similique. Rerum, autem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, asperiores ut, sed officia cum totam tempore eaque voluptates labore ipsam iure id praesentium quod saepe modi molestias facilis rem accusantium?</p>
+                <h1 class="text-lg text-secondary mb-[1rem] max-md:mx-[15%]" data-aos="fade-down">Tentang Seuramoe.id</h1>
+                <p class="w-[65ch] mx-auto text-justify max-md:w-[35ch] text-secondary" data-aos="fade-down">Seuramoe.id merupakan wadah digital yang dikembangkan untuk memperkenalkan potensi UMKM dan kearifan lokal desa. Melalui situs ini, usaha-usaha kecil dapat ditampilkan secara lebih modern sehingga masyarakat luas dapat mengenal produk, layanan, serta cerita di balik para pelaku UMKM. Selain sebagai media promosi, platform ini juga berperan sebagai ruang berbagi informasi dan inspirasi, sehingga mampu mendorong tumbuhnya ekonomi kreatif berbasis komunitas.</p>
             </section>
 
-            <section class="img-mahasiswa grid justify-self-center gap-[2%] min-h-screen pb-[1rem] mt-[20%] w-[100%] relative max-md:mt-[1%] max-md:justify-items-center">
-                <section class="kegiatan content-center">
-                    <img src="../../assets/img/background/kegiatan-1.webp" alt="">
+            <section class="img-mahasiswa grid justify-self-center gap-[2%] min-h-screen pb-[1rem] mt-[20%] w-[100%] relative max-md:mt-[1%] max-md:justify-items-center overflow-x-hidden">
+                <section class="kegiatan content-center" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500">
+                    <img src="../../assets/img/activity/aktivitas-12.webp" alt="">
                 </section>
 
-                <section class="kegiatan content-end">
-                    <img src="../../assets/img/background/kegiatan-4.webp" alt="">
+                <section class="kegiatan content-end" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="800">
+                    <img src="../../assets/img//activity/aktivitas-7.webp" alt="">
                 </section>
 
-                <section class="kegiatan relative top-[-8vh] max-md:top-0">
-                    <img src="../../assets/img/background/kegiatan-2.webp" alt="">
+                <section class="kegiatan relative top-[-8vh] max-md:top-0" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="800">
+                    <img src="../../assets/img/activity/aktivitas-13.webp" alt="">
                 </section>
 
-                <section class="kegiatan max-md:content-center">
-                    <img src="../../assets/img/background/kegiatan-3.webp" alt="">
+                <section class="kegiatan max-md:content-center" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500">
+                    <img src="../../assets/img/activity/aktivitas-16.webp" alt="">
                 </section>
             </section>
             
-            <section class="kategori-umkm flex justify-around items-start max-md:pt-[7%] max-md:justify-evenly text-center text-secondary-2">
+            <section class="kategori-umkm flex justify-around items-start max-md:pt-[7%] max-md:justify-evenly text-center text-secondary" data-aos="fade-up">
                 <a href="../../all-card-umkm/kerajinan/card-kerajinan.html" class="kategori">
                     <img src="../../assets/img/usaha-umkm/kerajinan/Daun-Rumbia.jpeg" alt="">
                     <p>kerajinan</p>
@@ -271,19 +306,19 @@
 
 
         <!-- visi dan misi -->
-        <section class="visi-misi min-h-screen grid grid-cols-2 max-md:grid-cols-1 max-md:items-center justify-items-center pt-[9%] w-screen">
+        <section class="visi-misi min-h-screen grid grid-cols-2 max-md:grid-cols-1 max-md:items-center justify-items-center pt-[9%] w-screen overflow-x-hidden" data-aos="fade-right">
             <section class="visi text-center text-dominant">
-                <h1 class="text-center text-3xl text-secondary uppercase">visi</h1>
+                <h1 class="text-center text-3xl text-secondary uppercase font-montserrat">visi</h1>
                 <section class="content bg-secondary w-[45vw] rounded-2xl text-justify p-[5%] max-md:w-[80vw]">
-                    <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates vero molestiae dolor laborum, impedit, deserunt, itaque cupiditate repellendus libero error voluptate pariatur. Voluptatem dolores saepe fugiat. Nam, deleniti fugiat! Modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur distinctio recusandae exercitationem assumenda voluptates, cumque quo ad maiores placeat, neque, ut laboriosam numquam eligendi magni perferendis! Reprehenderit unde quas rem.
+                    <p class="font-inter">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates vero molestiae dolor laborum, impedit, deserunt, itaque cupiditate repellendus libero error voluptate pariatur. Voluptatem dolores saepe fugiat. Nam, deleniti fugiat! Modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur distinctio recusandae exercitationem assumenda voluptates, cumque quo ad maiores placeat, neque, ut laboriosam numquam eligendi magni perferendis! Reprehenderit unde quas rem.
                     Dolor ex veniam fuga perspiciatis rem? Placeat qui eligendi iusto at laudantium tempore neque animi praesentium consequatur fuga, obcaecati sapiente repellat quisquam! Corporis fugit illum deleniti aliquam id est ea?</p>
                 </section>
             </section>
             
-            <section class="misi max-md:py-[20%]">
-                <h1 class="text-center text-3xl text-secondary uppercase">misi</h1>
+            <section class="misi max-md:py-[20%]" data-aos="fade-left">
+                <h1 class="text-center text-3xl text-secondary uppercase font-montserrat">misi</h1>
                 <section class="content bg-secondary rounded-2xl p-[5%] pl-[12%] w-[40vw] max-md:w-[80vw]">
-                    <ul class="list-decimal">
+                    <ul class="list-decimal font-inter">
                         <li class="hover:scale-[1.1]">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit
                         </li>
@@ -302,6 +337,7 @@
         </section>
     </main>
 
+    <script src="../../assets/animation/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mediaQuery = window.matchMedia('(min-width: 1024px)');
@@ -353,6 +389,8 @@
             sublist.classList.add('opacity-0', 'invisible')
         })
     </script>
-
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
