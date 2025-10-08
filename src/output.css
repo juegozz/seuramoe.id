@@ -5,7 +5,6 @@
   :root, :host {
     --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-black: #000;
@@ -229,11 +228,14 @@
   .right-\[3\%\] {
     right: 3%;
   }
-  .bottom-\[16vh\] {
-    bottom: 16vh;
+  .bottom-\[12vh\] {
+    bottom: 12vh;
   }
-  .bottom-\[32vh\] {
-    bottom: 32vh;
+  .bottom-\[28vh\] {
+    bottom: 28vh;
+  }
+  .left-1 {
+    left: calc(var(--spacing) * 1);
   }
   .left-1\/2 {
     left: calc(1/2 * 100%);
@@ -303,6 +305,9 @@
   }
   .mb-\[\.5em\] {
     margin-bottom: .5em;
+  }
+  .mb-\[1\.5\%\] {
+    margin-bottom: 1.5%;
   }
   .mb-\[1rem\] {
     margin-bottom: 1rem;
@@ -394,11 +399,11 @@
   .w-\[15\%\] {
     width: 15%;
   }
-  .w-\[28ch\] {
-    width: 28ch;
-  }
   .w-\[30vw\] {
     width: 30vw;
+  }
+  .w-\[32ch\] {
+    width: 32ch;
   }
   .w-\[40vw\] {
     width: 40vw;
@@ -450,6 +455,10 @@
   }
   .border-collapse {
     border-collapse: collapse;
+  }
+  .-translate-x-1 {
+    --tw-translate-x: calc(var(--spacing) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
@@ -577,6 +586,9 @@
   .overflow-y-auto {
     overflow-y: auto;
   }
+  .overflow-y-hidden {
+    overflow-y: hidden;
+  }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
@@ -642,11 +654,29 @@
   .object-\[50\%_25\%\] {
     object-position: 50% 25%;
   }
+  .object-\[50\%_40\%\] {
+    object-position: 50% 40%;
+  }
+  .object-\[50\%_50\%\] {
+    object-position: 50% 50%;
+  }
+  .object-\[50\%_60\%\] {
+    object-position: 50% 60%;
+  }
+  .object-\[50\%_70\%\] {
+    object-position: 50% 70%;
+  }
   .object-\[50\%_75\%\] {
     object-position: 50% 75%;
   }
+  .object-\[50\%_80\%\] {
+    object-position: 50% 80%;
+  }
   .object-\[50\%_85\%\] {
     object-position: 50% 85%;
+  }
+  .p-1 {
+    padding: calc(var(--spacing) * 1);
   }
   .p-1\.5 {
     padding: calc(var(--spacing) * 1.5);
@@ -717,9 +747,6 @@
   .font-montserrat {
     font-family: var(--font-montserrat);
   }
-  .font-serif {
-    font-family: var(--font-serif);
-  }
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -759,6 +786,9 @@
   .uppercase {
     text-transform: uppercase;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .opacity-0 {
     opacity: 0%;
   }
@@ -770,6 +800,10 @@
   }
   .opacity-\[1\] {
     opacity: 1;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -802,6 +836,10 @@
     --tw-duration: 500ms;
     transition-duration: 500ms;
   }
+  .duration-550 {
+    --tw-duration: 550ms;
+    transition-duration: 550ms;
+  }
   .duration-\[250ms\] {
     --tw-duration: 250ms;
     transition-duration: 250ms;
@@ -818,6 +856,12 @@
     --tw-text-shadow-alpha: 95%;
     text-shadow: 0px 1px 2px var(--tw-text-shadow-color, oklab(from rgb(0 0 0 / 0.1) l a b / 95%)), 0px 3px 2px var(--tw-text-shadow-color, oklab(from rgb(0 0 0 / 0.1) l a b / 95%)), 0px 4px 8px var(--tw-text-shadow-color, oklab(from rgb(0 0 0 / 0.1) l a b / 95%));
   }
+  .text-shadow-black {
+    --tw-text-shadow-color: #000;
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-text-shadow-color: color-mix(in oklab, var(--color-black) var(--tw-text-shadow-alpha), transparent);
+    }
+  }
   .text-shadow-black\/15 {
     --tw-text-shadow-color: color-mix(in srgb, #000 15%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -829,6 +873,9 @@
     @supports (color: color-mix(in lab, red, red)) {
       --tw-text-shadow-color: color-mix(in oklab, var(--color-dominant) var(--tw-text-shadow-alpha), transparent);
     }
+  }
+  .text-shadow-lg {
+    text-shadow: 0px 1px 2px var(--tw-text-shadow-color, rgb(0 0 0 / 0.1)), 0px 3px 2px var(--tw-text-shadow-color, rgb(0 0 0 / 0.1)), 0px 4px 8px var(--tw-text-shadow-color, rgb(0 0 0 / 0.1));
   }
   .group-hover\:visible {
     &:is(:where(.group):hover *) {
@@ -872,14 +919,14 @@
       top: 42%;
     }
   }
-  .max-md\:bottom-\[4vh\] {
+  .max-md\:bottom-\[2\.5vh\] {
     @media (width < 48rem) {
-      bottom: 4vh;
+      bottom: 2.5vh;
     }
   }
-  .max-md\:bottom-\[10vh\] {
+  .max-md\:bottom-\[8vh\] {
     @media (width < 48rem) {
-      bottom: 10vh;
+      bottom: 8vh;
     }
   }
   .max-md\:left-\[30vw\] {
@@ -1143,21 +1190,6 @@
       background-position: center top 35%;
     }
   }
-  .max-md\:object-\[50\%_25\%\] {
-    @media (width < 48rem) {
-      object-position: 50% 25%;
-    }
-  }
-  .max-md\:object-\[50\%_75\%\] {
-    @media (width < 48rem) {
-      object-position: 50% 75%;
-    }
-  }
-  .max-md\:object-\[50\%_85\%\] {
-    @media (width < 48rem) {
-      object-position: 50% 85%;
-    }
-  }
   .max-md\:p-0 {
     @media (width < 48rem) {
       padding: calc(var(--spacing) * 0);
@@ -1233,6 +1265,17 @@
       line-height: var(--tw-leading, var(--text-xs--line-height));
     }
   }
+  .max-md\:text-\[8px\] {
+    @media (width < 48rem) {
+      font-size: 8px;
+    }
+  }
+  .max-md\:font-bold {
+    @media (width < 48rem) {
+      --tw-font-weight: var(--font-weight-bold);
+      font-weight: var(--font-weight-bold);
+    }
+  }
   .max-md\:capitalize {
     @media (width < 48rem) {
       text-transform: capitalize;
@@ -1248,14 +1291,14 @@
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../assets/fonts/Montserrat/Montserrat-Bold.woff") format("woff");
+  src: url("../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("ttf");
   font-weight: 700;
   font-style: bold;
   font-display: swap;
 }
 @font-face {
   font-family: "Inter";
-  src: url("../assets/fonts/Inter/Inter-Regular.woff") format("woff");
+  src: url("../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("ttf");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -1318,6 +1361,11 @@
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
@@ -1454,6 +1502,7 @@
       --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-font-weight: initial;
+      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;

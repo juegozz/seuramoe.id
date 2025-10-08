@@ -41,6 +41,9 @@ const imgLeaf = document.querySelector('.img-umkm .kerajinan img')
 const imgUtens = document.querySelector('.img-umkm .makanan img')
 const imgShopp = document.querySelector('.img-umkm .sembako img')
 
+const descriptionLeaf = document.querySelector('.img-umkm .kerajinan a p')
+const descriptionUtens = document.querySelector('.img-umkm .makanan a p')
+const descriptionShopp = document.querySelector('.img-umkm .sembako a p')
 
 const linkLeaf = document.querySelector('.img-umkm .kerajinan a')
 const linkUtens = document.querySelector('.img-umkm .makanan a')
@@ -51,18 +54,24 @@ const iconAll = document.querySelector('.all-icon')
 iconAll.addEventListener('click', () => {
     setTimeout(() => {
         linkLeaf.classList.remove('invisible')
-        imgLeaf.classList.remove('translate-x-[-7.8rem]', 'scale-0', 'hidden')
+        imgLeaf.classList.remove('translate-x-[-7.8rem]', 'scale-0')
+        descriptionLeaf.classList.remove('translate-x-[-7.8rem]', 'scale-0')
         imgLeaf.classList.add('translate-x-[0]', 'scale-100', 'block')
+        descriptionLeaf.classList.add('translate-x-[0]', 'scale-100', 'block')
     }, 100)
     setTimeout(() => {
         linkUtens.classList.remove('invisible')
         imgUtens.classList.remove('translate-x-[7.8rem]', 'scale-0')
-        imgUtens.classList.add('translate-x-[0]', 'scale-100')
+        descriptionUtens.classList.remove('translate-x-[7.8rem]', 'scale-0')
+        imgUtens.classList.add('translate-x-[0]', 'scale-100', 'block')
+        descriptionUtens.classList.add('translate-x-[0]', 'scale-100', 'block')
     }, 200)
     setTimeout(() => {
         linkShopp.classList.remove('invisible')
         imgShopp.classList.remove('translate-y-[-5.8rem]', 'scale-0')
-        imgShopp.classList.add('translate-y-[0]', 'scale-100')
+        descriptionShopp.classList.add('translate-y-[-5.8rem]', 'scale-0')
+        imgShopp.classList.add('translate-y-[0]', 'scale-100', 'block')
+        descriptionShopp.classList.add('translate-y-[0]', 'scale-100', 'block')
     }, 300)
 })
 
